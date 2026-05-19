@@ -28,8 +28,8 @@ const advantages = [
   },
   {
     emoji: "🏆",
-    title: "10 ans d'expérience",
-    desc: "Près de 10 ans d'expertise dans la location de luxe. Une collaboration sereine et professionnelle garantie.",
+    title: "15 ans d'expérience",
+    desc: "15 ans d'expertise dans la location de luxe. Une collaboration sereine et professionnelle garantie.",
   },
   {
     emoji: "📞",

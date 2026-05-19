@@ -186,11 +186,84 @@ export default function Evenements() {
 
         {/* Main CTA */}
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="text-center">
+          className="text-center mb-20">
           <button onClick={() => setModalEvent("")} className="btn-primary">
             Organiser mon événement →
           </button>
         </motion.div>
+
+        {/* Photo scroll */}
+        <div className="mb-20">
+          <motion.p
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
+            className="label text-center mb-8 text-white/30"
+          >
+            Nos événements en photos
+          </motion.p>
+          <div className="relative overflow-hidden">
+            <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#080808] to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#080808] to-transparent z-10 pointer-events-none" />
+            <div
+              className="marquee-strip flex gap-4 w-max"
+              style={{ animation: "marquee 40s linear infinite" }}
+            >
+              {[...Array(2)].flatMap(() =>
+                [1, 2, 3, 4, 5, 6].map((n) => n)
+              ).map((n, i) => (
+                <div
+                  key={i}
+                  className="flex-shrink-0 transition-transform duration-300 hover:-translate-y-2"
+                  style={{ width: 400, height: 400 }}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`/events/event${n}.jpg`}
+                    alt={`Événement First Class ${n}`}
+                    style={{ width: 400, height: 400, objectFit: "cover", display: "block", borderRadius: 12, border: "1px solid rgba(201,168,76,0.25)" }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Video section */}
+        <div>
+          <motion.h3
+            initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="text-2xl md:text-3xl font-bold text-white text-center mb-10"
+            style={{ fontFamily: "var(--font-playfair)" }}
+          >
+            Nos événements{" "}
+            <span className="text-gold-gradient italic">en vidéo</span>
+          </motion.h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {["Vidéo événement 1", "Vidéo événement 2", "Vidéo événement 3"].map((title, i) => (
+              <motion.div
+                key={title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <div className="relative bg-[#0d0d0d] border border-gold/25 overflow-hidden group cursor-pointer hover:border-gold/50 transition-all duration-300"
+                  style={{ aspectRatio: "16/9" }}>
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-14 h-14 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:bg-gold/20 group-hover:border-gold/40 transition-all duration-300">
+                      <svg width="16" height="18" viewBox="0 0 16 18" fill="white" className="ml-1">
+                        <path d="M0 0L16 9L0 18V0Z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-white/50 text-sm mt-3 text-center" style={{ fontFamily: "var(--font-inter)" }}>
+                  {title}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className="absolute bottom-0 inset-x-0">

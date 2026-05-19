@@ -4,9 +4,9 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 const stats = [
-  { prefix: "+", value: 50, suffix: "", label: "Élèves formés", sublabel: "et satisfaits" },
+  { prefix: "+", value: 20, suffix: "", label: "Élèves formés", sublabel: "et satisfaits" },
   { prefix: "+", value: 1000, suffix: "", label: "Voitures louées", sublabel: "par l'agence" },
-  { prefix: "+", value: 10, suffix: " ans", label: "D'expérience", sublabel: "dans le secteur" },
+  { prefix: "", value: 15, suffix: " ans", label: "D'expérience", sublabel: "dans le secteur" },
   { prefix: "", value: 98, suffix: "%", label: "De satisfaction", sublabel: "taux moyen" },
 ];
 
@@ -68,7 +68,7 @@ export default function ChiffresCles() {
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Tu veux toi aussi lancer ta{" "}
-            <span className="text-gold-gradient italic">propre agence de luxe ?</span>
+            <span className="text-gold-gradient italic">propre agence de location de voiture de luxe ?</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}

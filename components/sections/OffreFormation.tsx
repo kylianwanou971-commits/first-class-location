@@ -12,7 +12,7 @@ function Countdown() {
   const [time, setTime] = useState({ h: 71, m: 59, s: 59 });
 
   useEffect(() => {
-    targetRef.current = Date.now() + 72 * 60 * 60 * 1000;
+    targetRef.current = Date.now() + 24 * 60 * 60 * 1000;
     const id = setInterval(() => {
       const diff = (targetRef.current ?? 0) - Date.now();
       if (diff <= 0) { setTime({ h: 0, m: 0, s: 0 }); clearInterval(id); return; }
@@ -292,12 +292,7 @@ export default function OffreFormation() {
               ))}
             </ul>
 
-            <div className="border-t border-gold/15 pt-6 mb-6 relative">
-              <p className="text-gold text-2xl font-bold" style={{ fontFamily: "var(--font-playfair)" }}>
-                À partir de 3 500 €
-              </p>
-              <p className="text-white/25 text-xs mt-1" style={{ fontFamily: "var(--font-inter)" }}>Sur devis selon ton projet</p>
-            </div>
+            <div className="border-t border-gold/15 pt-6 mb-6" />
 
             <button
               onClick={() => setContactOpen(true)}
@@ -305,6 +300,9 @@ export default function OffreFormation() {
             >
               Réserver un appel →
             </button>
+            <p className="text-center text-xs text-white/40 italic mt-3" style={{ fontFamily: "var(--font-inter)" }}>
+              (Gratuit &amp; sans engagement)
+            </p>
           </motion.div>
         </div>
 

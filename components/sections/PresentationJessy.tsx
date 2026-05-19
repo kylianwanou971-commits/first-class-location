@@ -5,7 +5,7 @@ import { Quote } from "lucide-react";
 import Image from "next/image";
 
 const stats = [
-  { value: "+10 ans", label: "dans le secteur" },
+  { value: "15 ans", label: "dans le secteur" },
   { value: "+1 000", label: "voitures louées" },
   { value: "N°1", label: "dans le Nord" },
 ];
@@ -72,12 +72,12 @@ export default function PresentationJessy() {
               className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight"
               style={{ fontFamily: "var(--font-playfair)" }}
             >
-              10 ans à la tête de{" "}
+              15 ans à la tête de{" "}
               <span className="text-gold-gradient italic">First Class Location</span>
             </h2>
 
             <p className="text-white/50 text-sm leading-relaxed mb-5" style={{ fontFamily: "var(--font-inter)" }}>
-              Jessy a fondé <strong className="text-white/80">First Class Location</strong> à Bondues (Nord) il y a plus de 10 ans. De zéro, il a bâti l&apos;agence de référence dans la métropole lilloise — +1 000 locations par an, une flotte de prestige, et une réputation construite client après client.
+              Jessy a fondé <strong className="text-white/80">First Class Location</strong> à Bondues (Nord) il y a plus de 15 ans. De zéro, il a bâti l&apos;agence de référence dans la métropole lilloise — +1 000 locations par an, une flotte de prestige, et une réputation construite client après client.
             </p>
 
             <p className="text-white/50 text-sm leading-relaxed mb-8" style={{ fontFamily: "var(--font-inter)" }}>

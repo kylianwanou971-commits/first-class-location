@@ -2,62 +2,65 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Play, Car, GraduationCap } from "lucide-react";
+import { Play } from "lucide-react";
 import Image from "next/image";
 
-/* ── Particules dorées flottantes (positions fixes pour éviter l'hydratation) ── */
 const particles = [
-  { top: "18%",  left: "8%",  size: 5, dur: 4.2, delay: 0    },
-  { top: "65%",  left: "88%", size: 4, dur: 5.1, delay: 0.8  },
-  { top: "38%",  left: "75%", size: 3, dur: 3.8, delay: 1.5  },
-  { top: "80%",  left: "15%", size: 6, dur: 6.0, delay: 0.4  },
-  { top: "50%",  left: "48%", size: 3, dur: 4.5, delay: 2.1  },
-  { top: "22%",  left: "58%", size: 4, dur: 5.5, delay: 1.0  },
+  { top: "18%", left: "8%",  size: 5, dur: 4.2, delay: 0   },
+  { top: "65%", left: "88%", size: 4, dur: 5.1, delay: 0.8 },
+  { top: "38%", left: "75%", size: 3, dur: 3.8, delay: 1.5 },
+  { top: "80%", left: "15%", size: 6, dur: 6.0, delay: 0.4 },
+  { top: "50%", left: "48%", size: 3, dur: 4.5, delay: 2.1 },
+  { top: "22%", left: "58%", size: 4, dur: 5.5, delay: 1.0 },
 ];
 
-/* ── Animation titre ligne par ligne ── */
 const lineVariants = {
   hidden: { opacity: 0, y: 32, filter: "blur(6px)" },
   visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
+    opacity: 1, y: 0, filter: "blur(0px)",
     transition: { delay: 0.15 + i * 0.18, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+  }),
+};
+
+const wordVariants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: (i: number) => ({
+    opacity: 1, y: 0,
+    transition: { delay: 0.25 + i * 0.07, duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] },
   }),
 };
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollY } = useScroll();
-  /* Parallax : l'image descend légèrement pendant le scroll */
   const bgY = useTransform(scrollY, [0, 700], ["0%", "22%"]);
 
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex flex-col items-center justify-center pt-28 pb-20 px-4 overflow-hidden"
+      className="relative flex flex-col items-center justify-center px-4 pb-10 overflow-hidden bg-[#0a0a0a] min-h-screen"
+      style={{ paddingTop: 90 }}
     >
-      {/* ── Fond image Unsplash avec parallaxe ── */}
+      {/* ── Fond image ── */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          style={{ y: bgY }}
-          className="absolute inset-0 scale-110 will-change-transform"
-        >
+        <motion.div style={{ y: bgY }} className="absolute inset-0 scale-110 will-change-transform">
           <Image
-            src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1920&q=80"
-            alt="Voiture de luxe First Class Location"
+            src="https://images.unsplash.com/photo-1776855222862-4c4949002701?w=1920&q=80"
+            alt="Porsche GT3 RS vue arrière circuit"
             fill
-            className="object-cover object-center"
+            className="object-cover"
+            style={{ objectPosition: "center 30%" }}
             priority
             sizes="100vw"
           />
         </motion.div>
-        {/* Overlay dégradé */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-[#0a0a0a]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/20" />
+        {/* Overlay 0.6 */}
+        <div className="absolute inset-0 bg-black/60" />
+        {/* Dégradé bas 150px */}
+        <div className="absolute bottom-0 inset-x-0 h-[150px] bg-gradient-to-t from-[#0a0a0a] to-transparent" />
       </div>
 
-      {/* ── Particules dorées flottantes ── */}
+      {/* ── Particules dorées ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {particles.map((p, i) => (
           <motion.div
@@ -67,137 +70,110 @@ export default function Hero() {
             transition={{ delay: p.delay + 1.8, duration: p.dur, repeat: Infinity, repeatType: "loop" }}
             className="absolute rounded-full bg-gold"
             style={{
-              top: p.top,
-              left: p.left,
-              width: p.size,
-              height: p.size,
+              top: p.top, left: p.left, width: p.size, height: p.size,
               boxShadow: `0 0 ${p.size * 3}px rgba(201,168,76,0.8)`,
               animation: `floatParticle ${p.dur}s ease-in-out ${p.delay}s infinite`,
             }}
           />
         ))}
-        {/* Glow central radial */}
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(201,168,76,0.06),transparent_70%)]" />
       </div>
 
-      {/* ── Contenu ── */}
-      <div className="relative max-w-4xl mx-auto text-center z-10">
+      {/* ── Contenu centré ── */}
+      <div className="relative max-w-4xl mx-auto text-center z-10 w-full">
 
-        {/* Label double activité */}
-        <motion.div
-          custom={0} variants={lineVariants} initial="hidden" animate="visible"
-          className="flex items-center justify-center gap-3 mb-8"
-        >
-          <div className="gold-line" />
-          <span className="label">Lille · Location de luxe & Formation</span>
-          <div className="gold-line" />
-        </motion.div>
-
-        {/* H1 — 2 lignes animées */}
-        <h1
-          className="font-bold leading-[1.08] mb-6"
-          style={{ fontFamily: "var(--font-playfair)" }}
-          aria-label="First Class Location — Loue. Roule. Réussis."
-        >
-          <motion.span
-            custom={1} variants={lineVariants} initial="hidden" animate="visible"
-            className="block text-2xl md:text-5xl lg:text-6xl text-white/90 tracking-tight"
-          >
-            First Class Location
-          </motion.span>
-          <motion.span
-            custom={2} variants={lineVariants} initial="hidden" animate="visible"
-            className="block text-3xl md:text-6xl lg:text-7xl text-gold-gradient italic mt-1"
-          >
-            Loue. Roule. Réussis.
-          </motion.span>
-        </h1>
-
-        {/* Sous-titre équilibré */}
+        {/* 1. Label */}
         <motion.p
-          custom={3} variants={lineVariants} initial="hidden" animate="visible"
-          className="text-white/55 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
+          custom={0} variants={lineVariants} initial="hidden" animate="visible"
+          className="text-sm font-bold tracking-widest uppercase text-gold mb-3"
           style={{ fontFamily: "var(--font-inter)" }}
         >
-          Location de voitures de luxe à{" "}
-          <span className="text-white font-semibold">Lille</span>{" "}
-          <span className="text-white/30">+</span>{" "}
-          La formation pour lancer{" "}
-          <span className="text-gold font-semibold">ta propre agence</span>
+          La meilleure formation pour lancer ton agence de location de luxe
         </motion.p>
 
-        {/* 2 CTA côte à côte */}
+        {/* 2. H1 — mot par mot, text-5xl */}
+        <h1
+          className="font-bold mb-4 leading-[1.1]"
+          style={{ fontFamily: "var(--font-playfair)" }}
+          aria-label="La seule formation du marché où un véhicule t'attend à la fin."
+        >
+          <span className="block text-6xl text-white/90 mb-1">
+            {["La", "seule", "formation", "du", "marché"].map((w, i) => (
+              <motion.span key={i} custom={i} variants={wordVariants} initial="hidden" animate="visible"
+                className="inline-block mr-[0.3em]">{w}</motion.span>
+            ))}
+          </span>
+          <span className="block text-6xl text-white/90 mb-2">
+            {["où", "un", "véhicule", "t'attend"].map((w, i) => (
+              <motion.span key={i} custom={5 + i} variants={wordVariants} initial="hidden" animate="visible"
+                className="inline-block mr-[0.3em]">{w}</motion.span>
+            ))}
+          </span>
+          <span className="block text-6xl text-gold-gradient italic">
+            {["à", "la", "fin."].map((w, i) => (
+              <motion.span key={i} custom={9 + i} variants={wordVariants} initial="hidden" animate="visible"
+                className="inline-block mr-[0.3em]">{w}</motion.span>
+            ))}
+          </span>
+        </h1>
+
+        {/* 3. Sous-titre — text-lg, mb 24px */}
+        <motion.p
+          custom={3} variants={lineVariants} initial="hidden" animate="visible"
+          className="text-lg text-white/55 max-w-xl mx-auto mb-6 leading-relaxed"
+          style={{ fontFamily: "var(--font-inter)" }}
+        >
+          15 ans d&apos;expérience · Agence lancée en 60 jours
+        </motion.p>
+
+        {/* 4. CTA — padding 16px 32px, mb 32px */}
         <motion.div
           custom={4} variants={lineVariants} initial="hidden" animate="visible"
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-14"
+          className="flex justify-center mb-8"
         >
-          <a href="#location" className="btn-secondary text-sm px-8 py-4 group">
-            <Car size={16} />
-            Réserver une voiture
-            <span className="text-gold/50 ml-0.5">→</span>
-          </a>
-          <a href="#formation" className="btn-primary text-xs px-7 py-4 group">
-            <GraduationCap size={15} />
-            Devenir loueur
+          <a href="#formation" className="btn-primary px-8 py-4">
+            Je veux lancer mon agence
           </a>
         </motion.div>
 
-        {/* VSL Placeholder — inchangé */}
+        {/* 5. VSL — 780px × 380px, radius 12px, bordure or */}
         <motion.div
           initial={{ opacity: 0, y: 30, scale: 0.97 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ delay: 1.2, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="relative aspect-video w-full max-w-3xl mx-auto mb-10"
+          className="relative w-full max-w-[780px] mx-auto overflow-hidden border border-gold/40"
+          style={{ height: 440, borderRadius: 12 }}
         >
-          <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-gold/40 via-gold/10 to-transparent" />
-          <div className="relative rounded-2xl overflow-hidden bg-[#0d0d0d] border border-white/5 animate-pulse-gold">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#1a1200] via-[#0d0d0d] to-[#0a0a0a]" />
-            <div
-              className="absolute inset-0 opacity-[0.03]"
-              style={{
-                backgroundImage: "linear-gradient(rgba(255,255,255,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.1) 1px,transparent 1px)",
-                backgroundSize: "40px 40px",
-              }}
-            />
-            <div className="absolute top-5 left-5 right-5 flex items-center justify-between">
-              <span className="label text-white/30">Vidéo de présentation</span>
-              <span className="label text-white/20">First Class Location</span>
-            </div>
-            <button className="absolute inset-0 flex items-center justify-center group" aria-label="Regarder la vidéo">
-              <div className="relative">
-                <div className="absolute inset-0 rounded-full bg-gold/20 scale-150 animate-ping" style={{ animationDuration: "2s" }} />
-                <div className="absolute inset-0 rounded-full bg-gold/10 scale-125" />
-                <div className="relative w-20 h-20 rounded-full bg-gold flex items-center justify-center shadow-[0_0_50px_rgba(201,168,76,0.5)] group-hover:scale-110 group-hover:shadow-[0_0_80px_rgba(201,168,76,0.7)] transition-all duration-300">
-                  <Play size={28} fill="black" className="text-black ml-1" />
-                </div>
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1a1200] via-[#0d0d0d] to-[#0a0a0a]" />
+          <div
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: "linear-gradient(rgba(255,255,255,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.1) 1px,transparent 1px)",
+              backgroundSize: "40px 40px",
+            }}
+          />
+          {/* Glow or en haut */}
+          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
+          <div className="absolute top-5 left-5 right-5 flex items-center justify-between">
+            <span className="label text-white/30">Vidéo de présentation</span>
+            <span className="label text-white/20">First Class Location</span>
+          </div>
+          <button className="absolute inset-0 flex items-center justify-center group animate-pulse-gold" aria-label="Regarder la vidéo">
+            <div className="relative">
+              <div className="absolute inset-0 rounded-full bg-gold/20 scale-150 animate-ping" style={{ animationDuration: "2s" }} />
+              <div className="absolute inset-0 rounded-full bg-gold/10 scale-125" />
+              <div className="relative w-20 h-20 rounded-full bg-gold flex items-center justify-center shadow-[0_0_50px_rgba(201,168,76,0.5)] group-hover:scale-110 group-hover:shadow-[0_0_80px_rgba(201,168,76,0.7)] transition-all duration-300">
+                <Play size={28} fill="black" className="text-black ml-1" />
               </div>
-            </button>
-            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-5">
-              <p className="text-white/40 text-xs text-center" style={{ fontFamily: "var(--font-inter)" }}>
-                Clique pour regarder la présentation complète
-              </p>
             </div>
+          </button>
+          <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-5">
+            <p className="text-white/40 text-xs text-center" style={{ fontFamily: "var(--font-inter)" }}>
+              Clique pour regarder la présentation complète
+            </p>
           </div>
         </motion.div>
 
-        {/* Badges de réassurance — mix location + formation */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.55, duration: 0.5 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-8"
-        >
-          {[
-            { icon: Car,            text: "Disponible 7j/7 à Lille" },
-            { icon: Play,           text: "Formation 100% en ligne" },
-            { icon: GraduationCap,  text: "+50 élèves formés" },
-          ].map((b) => (
-            <div key={b.text} className="flex items-center gap-2" style={{ fontFamily: "var(--font-inter)" }}>
-              <b.icon size={14} className="text-gold flex-shrink-0" />
-              <span className="text-white/55 text-sm font-medium">{b.text}</span>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

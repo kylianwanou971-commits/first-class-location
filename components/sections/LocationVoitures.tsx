@@ -1,10 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Phone } from "lucide-react";
 import Image from "next/image";
-import ReservationModal from "./ReservationModal";
 
 type BadgeType = "available" | "vip";
 
@@ -83,15 +80,7 @@ const fleet = [
   },
 ];
 
-function CarCard({
-  car,
-  index,
-  onReserve,
-}: {
-  car: typeof fleet[0];
-  index: number;
-  onReserve: (name: string) => void;
-}) {
+function CarCard({ car, index }: { car: typeof fleet[0]; index: number }) {
   const borderCls = car.vip
     ? "border border-gold/50 hover:border-gold"
     : "border border-white/6 hover:border-gold/35";
@@ -115,7 +104,7 @@ function CarCard({
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-black/20" />
 
-        {/* Availability badge */}
+        {/* Badge */}
         <div className="absolute top-3 right-3">
           {car.badgeType === "available" ? (
             <span
@@ -161,15 +150,12 @@ function CarCard({
         >
           Prix sur demande
         </p>
-
-        <button
-          onClick={() => onReserve(car.name)}
-          className="flex items-center gap-2 text-[11px] font-semibold tracking-widest uppercase text-black bg-gold px-4 py-2.5
-                     hover:bg-[#d4b05c] transition-colors duration-200 w-full justify-center rounded-sm"
+        <p
+          className="text-gold/60 text-[10px] font-semibold uppercase tracking-widest text-center border border-gold/20 py-2"
           style={{ fontFamily: "var(--font-inter)" }}
         >
-          Réserver
-        </button>
+          Voiture disponible dans la formation
+        </p>
       </div>
 
       <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/0 to-transparent group-hover:via-gold/50 transition-all duration-400" />
@@ -178,8 +164,6 @@ function CarCard({
 }
 
 export default function LocationVoitures() {
-  const [modalCar, setModalCar] = useState<string | null>(null);
-
   return (
     <section id="location" className="py-24 md:py-32 px-4 bg-[#080808] relative overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
@@ -225,49 +209,17 @@ export default function LocationVoitures() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {fleet.map((car, i) => (
-            <CarCard
-              key={car.name}
-              car={car}
-              index={i}
-              onReserve={setModalCar}
-            />
+            <CarCard key={car.name} car={car} index={i} />
           ))}
         </div>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <a href="tel:0622543084" className="btn-primary">
-            <Phone size={14} />
-            Voir toutes nos voitures — 06 22 54 30 84
-            <ArrowRight size={14} />
-          </a>
-          <button
-            onClick={() => setModalCar("Votre choix de véhicule")}
-            className="btn-secondary text-xs"
-          >
-            Demander un devis personnalisé
-          </button>
-        </motion.div>
       </div>
 
       <div className="absolute bottom-0 inset-x-0">
         <div className="h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" />
         <div className="h-px mt-px bg-gradient-to-r from-transparent via-gold/10 to-transparent" />
       </div>
-
-      <ReservationModal
-        isOpen={!!modalCar}
-        onClose={() => setModalCar(null)}
-        carName={modalCar ?? ""}
-      />
     </section>
   );
 }

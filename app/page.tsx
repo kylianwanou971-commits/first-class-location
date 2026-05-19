@@ -1,16 +1,16 @@
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
-import LocationVoitures from "@/components/sections/LocationVoitures";
-import LLDPro from "@/components/sections/LLDPro";
-import LogosBandeau from "@/components/sections/LogosBandeau";
 import ChiffresCles from "@/components/sections/ChiffresCles";
+import Temoignages from "@/components/sections/Temoignages";
+import PresentationJessy from "@/components/sections/PresentationJessy";
 import Simulateur from "@/components/sections/Simulateur";
+import LocationVoitures from "@/components/sections/LocationVoitures";
+import LogosBandeau from "@/components/sections/LogosBandeau";
+import OffreFormation from "@/components/sections/OffreFormation";
 import PourquoiFormation from "@/components/sections/PourquoiFormation";
 import Programme from "@/components/sections/Programme";
-import Temoignages from "@/components/sections/Temoignages";
+import LLDPro from "@/components/sections/LLDPro";
 import Evenements from "@/components/sections/Evenements";
-import PresentationJessy from "@/components/sections/PresentationJessy";
-import OffreFormation from "@/components/sections/OffreFormation";
 import FAQ from "@/components/sections/FAQ";
 import Footer from "@/components/sections/Footer";
 
@@ -19,17 +19,18 @@ export default function Page() {
     <>
       <Navbar />
       <Hero />
-      <LocationVoitures />
-      <LogosBandeau />
       <ChiffresCles />
       <Temoignages />
       <PresentationJessy />
       <Simulateur />
+      <LocationVoitures />
+      <LogosBandeau />
+      <OffreFormation />
       <PourquoiFormation />
       <Programme />
-      <OffreFormation />
       <LLDPro />
       <Evenements />
+      <OffreFormation />
       <FAQ />
       <Footer />
     </>

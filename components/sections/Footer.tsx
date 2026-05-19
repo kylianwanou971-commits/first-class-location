@@ -44,7 +44,7 @@ export default function Footer() {
               className="text-white/30 text-xs leading-relaxed mb-5"
               style={{ fontFamily: "var(--font-inter)" }}
             >
-              Agence de location de voitures de luxe — référence N°1 dans la métropole lilloise depuis plus de 10 ans.
+              Agence de location de voitures de luxe — référence N°1 dans la métropole lilloise depuis plus de 15 ans.
             </p>
 
             {/* Contact infos */}

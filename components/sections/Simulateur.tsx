@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
@@ -9,18 +9,12 @@ function trackStyle(val: number, min: number, max: number) {
   return { background: `linear-gradient(to right, #c9a84c ${pct}%, #2a2a2a ${pct}%)` };
 }
 
-interface SliderProps {
-  label: string;
-  value: number;
-  min: number;
-  max: number;
-  step: number;
-  onChange: (v: number) => void;
-  displayValue: string;
-  hint?: string;
-}
-
-function GoldSlider({ label, value, min, max, step, onChange, displayValue, hint }: SliderProps) {
+function GoldSlider({
+  label, value, min, max, step, onChange, displayValue,
+}: {
+  label: string; value: number; min: number; max: number;
+  step: number; onChange: (v: number) => void; displayValue: string;
+}) {
   return (
     <div>
       <div className="flex items-center justify-between mb-3">
@@ -48,48 +42,20 @@ function GoldSlider({ label, value, min, max, step, onChange, displayValue, hint
         className="slider-gold w-full"
         style={trackStyle(value, min, max)}
       />
-      {hint && (
-        <p className="text-white/20 text-[10px] mt-2.5 tracking-wide" style={{ fontFamily: "var(--font-inter)" }}>
-          {hint}
-        </p>
-      )}
-    </div>
-  );
-}
-
-function ResultLine({
-  label, value, color = "white", large = false,
-}: { label: string; value: string; color?: string; large?: boolean }) {
-  return (
-    <div className="flex items-center justify-between py-3.5 border-b border-white/6 last:border-b-0">
-      <span className="text-white/40 text-xs" style={{ fontFamily: "var(--font-inter)" }}>
-        {label}
-      </span>
-      <motion.span
-        key={value}
-        initial={{ opacity: 0.3, x: 4 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.15 }}
-        className={`font-bold ${large ? "text-2xl" : "text-base"}`}
-        style={{ fontFamily: "var(--font-inter)", color }}
-      >
-        {value}
-      </motion.span>
     </div>
   );
 }
 
 export default function Simulateur() {
-  const [vehicules, setVehicules] = useState(3);
-  const [prixJour, setPrixJour] = useState(300);
+  const [loyer, setLoyer] = useState(1500);
+  const [prixJour, setPrixJour] = useState(250);
   const [jours, setJours] = useState(15);
-  const [charges, setCharges] = useState(3000);
+  const [vehicules, setVehicules] = useState(1);
 
-  const { ca, benefice, annuel } = useMemo(() => {
-    const ca = vehicules * prixJour * jours;
-    const benefice = ca - charges;
-    return { ca, benefice, annuel: benefice * 12 };
-  }, [vehicules, prixJour, jours, charges]);
+  const ca = prixJour * jours * vehicules;
+  const loyerTotal = loyer * vehicules;
+  const benefice = ca - loyerTotal;
+  const annuel = benefice * 12;
 
   const fmt = (n: number) => n.toLocaleString("fr-FR");
 
@@ -139,103 +105,145 @@ export default function Simulateur() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-6"
+          className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-6 lg:items-stretch"
         >
           {/* Sliders */}
-          <div className="bg-[#0d0d0d] border border-white/6 p-7 space-y-8">
+          <div className="bg-[#0d0d0d] border border-white/6 p-5 flex flex-col justify-between h-full">
             <GoldSlider
-              label="Nombre de véhicules"
-              value={vehicules}
-              min={1}
-              max={15}
-              step={1}
-              onChange={setVehicules}
-              displayValue={`${vehicules} véhicule${vehicules > 1 ? "s" : ""} dans ta flotte`}
+              label="Loyer mensuel du véhicule"
+              value={loyer}
+              min={500}
+              max={5000}
+              step={100}
+              onChange={setLoyer}
+              displayValue={`${fmt(loyer)} €`}
             />
             <GoldSlider
-              label="Prix moyen par jour"
+              label="Prix de location à la journée"
               value={prixJour}
-              min={150}
+              min={100}
               max={800}
               step={10}
               onChange={setPrixJour}
-              displayValue={`${fmt(prixJour)} € / jour en moyenne`}
-              hint="BMW M4  ·  Mercedes AMG  ·  Porsche  ·  Ferrari"
+              displayValue={`${fmt(prixJour)} €`}
             />
             <GoldSlider
-              label="Jours loués / mois (par véhicule)"
+              label="Jours loués par mois"
               value={jours}
               min={5}
               max={28}
               step={1}
               onChange={setJours}
-              displayValue={`${jours} jours / mois`}
+              displayValue={`${jours} jour${jours > 1 ? "s" : ""}`}
             />
-            <GoldSlider
-              label="Charges mensuelles totales"
-              value={charges}
-              min={500}
-              max={20000}
-              step={100}
-              onChange={setCharges}
-              displayValue={`${fmt(charges)} € de charges`}
-            />
+
+            {/* Séparateur + texte explicatif */}
+            <div>
+              <div className="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent mb-5" />
+              <p className="text-white/25 text-[11px] leading-relaxed mb-6" style={{ fontFamily: "var(--font-inter)" }}>
+                Basé sur 1 véhicule. Multiplie par le nombre de véhicules dans ta flotte pour estimer ton CA total.
+              </p>
+              <GoldSlider
+                label="Nombre de véhicules"
+                value={vehicules}
+                min={1}
+                max={10}
+                step={1}
+                onChange={setVehicules}
+                displayValue={`${vehicules} véhicule${vehicules > 1 ? "s" : ""} dans ta flotte`}
+              />
+            </div>
           </div>
 
           {/* Results */}
           <div className="flex flex-col">
-            <div className="bg-[#0d0d0d] border border-white/6 p-6 flex-1">
-              <p className="label text-white/30 mb-1" style={{ fontFamily: "var(--font-inter)" }}>
+            <div className="bg-[#0d0d0d] border border-white/6 p-6 flex-1 flex flex-col">
+              <p className="label text-white/30 mb-4" style={{ fontFamily: "var(--font-inter)" }}>
                 Résultats en temps réel
               </p>
-              <div className="mt-4">
-                {/* 2-col on mobile */}
-                <div className="grid grid-cols-2 lg:grid-cols-1 gap-3 mb-3">
-                  <div className="py-3 border-b border-white/6 lg:border-b-0">
-                    <p className="text-white/40 text-xs mb-1" style={{ fontFamily: "var(--font-inter)" }}>CA brut / mois</p>
-                    <motion.span key={ca} initial={{ opacity: 0.3, x: 4 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.15 }}
-                      className="font-bold text-base text-white" style={{ fontFamily: "var(--font-inter)" }}>
-                      {fmt(ca)} €
-                    </motion.span>
-                  </div>
-                  <div className="py-3 border-b border-white/6 lg:border-b-0">
-                    <p className="text-white/40 text-xs mb-1" style={{ fontFamily: "var(--font-inter)" }}>Charges / mois</p>
-                    <motion.span key={charges} initial={{ opacity: 0.3, x: 4 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.15 }}
-                      className="font-bold text-base text-red-400" style={{ fontFamily: "var(--font-inter)" }}>
-                      − {fmt(charges)} €
-                    </motion.span>
-                  </div>
-                </div>
 
-                {/* Bénéfice — highlighted */}
-                <div className="my-3 p-4 bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.08),transparent_70%)] border border-gold/20">
-                  <p className="text-white/30 text-[10px] uppercase tracking-widest mb-1" style={{ fontFamily: "var(--font-inter)" }}>
-                    Bénéfice net / mois
-                  </p>
-                  <motion.p
-                    key={benefice}
-                    initial={{ opacity: 0.3, x: 4 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.15 }}
-                    className={`text-3xl font-bold ${benefice >= 0 ? "text-gold" : "text-red-400"}`}
-                    style={{ fontFamily: "var(--font-inter)" }}
-                  >
-                    {benefice >= 0 ? "" : "− "}{fmt(Math.abs(benefice))} €
-                  </motion.p>
-                </div>
+              {/* Contexte véhicules */}
+              <motion.p
+                key={vehicules}
+                initial={{ opacity: 0.3, x: 4 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.15 }}
+                className="text-white/25 text-[10px] uppercase tracking-widest mb-3"
+                style={{ fontFamily: "var(--font-inter)" }}
+              >
+                {vehicules} véhicule{vehicules > 1 ? "s" : ""} dans ta flotte
+              </motion.p>
 
-                <ResultLine
-                  label="Revenu annuel estimé"
-                  value={`${fmt(annuel)} €/an`}
-                  color="#c9a84c"
-                />
+              {/* CA */}
+              <div className="py-3.5 border-b border-white/6">
+                <p className="text-white/40 text-xs mb-1" style={{ fontFamily: "var(--font-inter)" }}>
+                  Chiffre d&apos;affaires hors taxes par mois
+                </p>
+                <motion.p
+                  key={ca}
+                  initial={{ opacity: 0.3, x: 4 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.15 }}
+                  className="font-bold text-xl text-white"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  {fmt(ca)} €
+                </motion.p>
+              </div>
+
+              {/* Loyer total */}
+              <div className="py-3.5 border-b border-white/6">
+                <p className="text-white/40 text-xs mb-1" style={{ fontFamily: "var(--font-inter)" }}>
+                  Loyer total des véhicules
+                </p>
+                <motion.p
+                  key={loyerTotal}
+                  initial={{ opacity: 0.3, x: 4 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.15 }}
+                  className="font-bold text-base text-red-400"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  − {fmt(loyerTotal)} €
+                </motion.p>
+              </div>
+
+              {/* Bénéfice — highlighted */}
+              <div className="my-3 p-4 bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.08),transparent_70%)] border border-gold/20">
+                <p className="text-white/30 text-[10px] uppercase tracking-widest mb-1" style={{ fontFamily: "var(--font-inter)" }}>
+                  Bénéfice hors taxes avant impôt
+                </p>
+                <motion.p
+                  key={benefice}
+                  initial={{ opacity: 0.3, x: 4 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.15 }}
+                  className={`text-3xl font-bold ${benefice >= 0 ? "text-gold" : "text-red-400"}`}
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  {benefice >= 0 ? "" : "− "}{fmt(Math.abs(benefice))} €
+                </motion.p>
+              </div>
+
+              {/* Annuel */}
+              <div className="flex items-center justify-between py-3 mt-auto">
+                <span className="text-white/40 text-xs" style={{ fontFamily: "var(--font-inter)" }}>
+                  Revenus annuel estimé
+                </span>
+                <motion.span
+                  key={annuel}
+                  initial={{ opacity: 0.3, x: 4 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.15 }}
+                  className="font-bold text-base text-gold"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  {fmt(annuel)} €/an
+                </motion.span>
               </div>
             </div>
 
-            <a
-              href="#formation"
-              className="btn-primary justify-center mt-4"
-            >
+            <a href="#formation" className="btn-primary justify-center mt-4">
               Je veux atteindre ces chiffres
               <ArrowRight size={14} />
             </a>
