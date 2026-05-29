@@ -42,7 +42,7 @@ function Slider({ label, min, max, step, value, onChange, format }: SliderProps)
         </span>
       </div>
       <div className="relative">
-        <div className="h-1 bg-[#1a1a1a] rounded-full mb-1">
+        <div className="h-1 bg-[#FFFFFF] rounded-full mb-1">
           <div
             className="h-1 bg-gold rounded-full transition-all duration-100"
             style={{ width: `${pct}%` }}
@@ -164,7 +164,7 @@ export default function SimulateurCA() {
                 key={label}
                 layout
                 className={`card-surface p-6 flex items-center justify-between ${
-                  highlight ? "border-gold/40 bg-gradient-to-r from-[#1a1200] to-[#111111]" : ""
+                  highlight ? "border-[#C9A84C]/40 bg-gradient-to-r from-[#F5EDD4] to-[#FAF7F2]" : ""
                 }`}
               >
                 <p

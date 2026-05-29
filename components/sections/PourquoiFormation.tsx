@@ -29,7 +29,7 @@ const problems = [
 
 export default function PourquoiFormation() {
   return (
-    <section className="py-24 md:py-32 px-4 bg-[#080808] relative overflow-hidden">
+    <section className="py-24 md:py-32 px-4 bg-[#FAF7F2] relative overflow-hidden">
       {/* Accent */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
       <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
@@ -50,7 +50,7 @@ export default function PourquoiFormation() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl font-bold text-white mb-4"
+            className="text-3xl md:text-5xl font-bold text-[#1A1205] mb-4"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Les 3 blocages que
@@ -62,7 +62,7 @@ export default function PourquoiFormation() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-white/40 text-base max-w-xl mx-auto mb-3"
+            className="text-[#2D2416] text-base max-w-xl mx-auto mb-3"
             style={{ fontFamily: "var(--font-inter)" }}
           >
             First Class Location génère +1 000 locations/an. Jessy a décidé de partager exactement comment — pour que toi aussi tu puisses construire ce qu&apos;il a construit.
@@ -78,7 +78,7 @@ export default function PourquoiFormation() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.12, duration: 0.6 }}
-              className="relative bg-[#0d0d0d] border border-white/6 p-7 group hover:border-gold/25 transition-all duration-300"
+              className="relative bg-[#FFFFFF] border border-white/6 p-7 group hover:border-[#C9A84C]/40 transition-all duration-300"
             >
               {/* Number */}
               <span
@@ -89,13 +89,13 @@ export default function PourquoiFormation() {
               </span>
 
               {/* Icon */}
-              <div className="w-11 h-11 bg-gold/10 border border-gold/20 flex items-center justify-center mb-6 group-hover:bg-gold/15 transition-colors">
+              <div className="w-11 h-11 bg-gold/10 border border-[#C9A84C]/40 flex items-center justify-center mb-6 group-hover:bg-gold/15 transition-colors">
                 <p.icon size={20} className="text-gold" />
               </div>
 
               {/* Problem */}
               <h3
-                className="text-lg font-bold text-white mb-4 leading-snug"
+                className="text-lg font-bold text-[#1A1205] mb-4 leading-snug"
                 style={{ fontFamily: "var(--font-playfair)" }}
               >
                 {p.problem}
@@ -103,7 +103,7 @@ export default function PourquoiFormation() {
 
               {/* Solution */}
               <p
-                className="text-white/45 text-sm leading-relaxed mb-6"
+                className="text-[#6B5C3E] text-sm leading-relaxed mb-6"
                 style={{ fontFamily: "var(--font-inter)" }}
               >
                 {p.solution}
@@ -113,7 +113,7 @@ export default function PourquoiFormation() {
               <div className="space-y-2 pt-5 border-t border-white/6">
                 <div className="flex items-center gap-2">
                   <span className="text-red-400/70 text-xs">✕</span>
-                  <span className="text-white/30 text-xs" style={{ fontFamily: "var(--font-inter)" }}>{p.before}</span>
+                  <span className="text-[#2D2416] text-xs" style={{ fontFamily: "var(--font-inter)" }}>{p.before}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-gold text-xs">✓</span>

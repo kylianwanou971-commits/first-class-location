@@ -40,56 +40,56 @@ function EventModal({
 
   const update = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm(f => ({ ...f, [k]: e.target.value }));
-  const cls = "w-full bg-[#111] border border-white/10 px-3 py-2.5 text-white text-sm focus:outline-none focus:border-gold/50 transition-colors";
+  const cls = "w-full bg-[#FFFFFF] border border-[#C9A84C]/40 px-3 py-2.5 text-[#1A1205] text-sm focus:outline-none focus:border-gold/50 transition-colors";
 
   return (
     <AnimatePresence>
       {isOpen && (
         <>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            onClick={onClose} className="fixed inset-0 bg-black/80 z-50 backdrop-blur-sm" />
+            onClick={onClose} className="fixed inset-0 bg-black/10 z-50 backdrop-blur-sm" />
           <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-8 pointer-events-none">
             <motion.div
               initial={{ opacity: 0, scale: 0.93, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.93, y: 20 }}
               transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="bg-[#0d0d0d] border border-gold/30 w-full max-w-lg relative pointer-events-auto max-h-[90vh] overflow-y-auto"
+              className="bg-[#FFFFFF] border border-[#C9A84C]/40 w-full max-w-lg relative pointer-events-auto max-h-[90vh] overflow-y-auto"
             >
               <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
-              <button onClick={onClose} className="absolute top-4 right-4 text-white/30 hover:text-white transition-colors" aria-label="Fermer">
+              <button onClick={onClose} className="absolute top-4 right-4 text-[#2D2416] hover:text-[#1A1205] transition-colors" aria-label="Fermer">
                 <X size={20} />
               </button>
               <div className="p-7">
                 {!submitted ? (
                   <>
                     <p className="label mb-1.5">First Class Events</p>
-                    <h3 className="text-xl font-bold text-white mb-6" style={{ fontFamily: "var(--font-playfair)" }}>
+                    <h3 className="text-xl font-bold text-[#1A1205] mb-6" style={{ fontFamily: "var(--font-playfair)" }}>
                       Organisons ton événement
                     </h3>
                     <form onSubmit={e => { e.preventDefault(); setSubmitted(true); }} className="space-y-4">
                       <div className="grid grid-cols-2 gap-3">
                         <div>
-                          <label className="text-white/40 text-[10px] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>Prénom *</label>
+                          <label className="text-[#2D2416] text-[10px] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>Prénom *</label>
                           <input required type="text" value={form.prenom} onChange={update("prenom")} className={cls} style={{ fontFamily: "var(--font-inter)" }} />
                         </div>
                         <div>
-                          <label className="text-white/40 text-[10px] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>Nom *</label>
+                          <label className="text-[#2D2416] text-[10px] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>Nom *</label>
                           <input required type="text" value={form.nom} onChange={update("nom")} className={cls} style={{ fontFamily: "var(--font-inter)" }} />
                         </div>
                       </div>
                       <div>
-                        <label className="text-white/40 text-[10px] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>Téléphone *</label>
+                        <label className="text-[#2D2416] text-[10px] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>Téléphone *</label>
                         <input required type="tel" value={form.telephone} onChange={update("telephone")} className={cls} style={{ fontFamily: "var(--font-inter)" }} />
                       </div>
                       <div>
-                        <label className="text-white/40 text-[10px] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>Email *</label>
+                        <label className="text-[#2D2416] text-[10px] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>Email *</label>
                         <input required type="email" value={form.email} onChange={update("email")} className={cls} style={{ fontFamily: "var(--font-inter)" }} />
                       </div>
                       <div>
-                        <label className="text-white/40 text-[10px] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>Type d&apos;événement *</label>
+                        <label className="text-[#2D2416] text-[10px] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>Type d&apos;événement *</label>
                         <select required value={form.typeEvenement} onChange={update("typeEvenement")}
-                          className={`${cls} bg-[#111]`}
+                          className={`${cls} bg-[#FFFFFF]`}
                           style={{ fontFamily: "var(--font-inter)", colorScheme: "dark" }}>
                           <option value="">Sélectionner...</option>
                           <option>Mariage / Cérémonie</option>
@@ -99,7 +99,7 @@ function EventModal({
                         </select>
                       </div>
                       <div>
-                        <label className="text-white/40 text-[10px] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>Décris ton projet</label>
+                        <label className="text-[#2D2416] text-[10px] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>Décris ton projet</label>
                         <textarea rows={3} value={form.message} onChange={update("message")} className={`${cls} resize-none`} style={{ fontFamily: "var(--font-inter)" }} />
                       </div>
                       <button type="submit" className="btn-primary w-full justify-center py-4">
@@ -110,8 +110,8 @@ function EventModal({
                 ) : (
                   <div className="text-center py-10">
                     <CheckCircle size={52} className="text-gold mx-auto mb-5" />
-                    <h3 className="text-xl font-bold text-white mb-2" style={{ fontFamily: "var(--font-playfair)" }}>Demande envoyée !</h3>
-                    <p className="text-white/50 text-sm mb-6" style={{ fontFamily: "var(--font-inter)" }}>Jessy vous contacte sous 24h ✓</p>
+                    <h3 className="text-xl font-bold text-[#1A1205] mb-2" style={{ fontFamily: "var(--font-playfair)" }}>Demande envoyée !</h3>
+                    <p className="text-[#2D2416] text-sm mb-6" style={{ fontFamily: "var(--font-inter)" }}>Jessy vous contacte sous 24h ✓</p>
                     <button onClick={onClose} className="btn-secondary text-xs">Fermer</button>
                   </div>
                 )}
@@ -128,7 +128,7 @@ export default function Evenements() {
   const [modalEvent, setModalEvent] = useState<string | null>(null);
 
   return (
-    <section id="evenements" className="py-24 md:py-32 px-4 bg-[#080808] relative overflow-hidden">
+    <section id="evenements" className="py-24 md:py-32 px-4 bg-[#FAF7F2] relative overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(201,168,76,0.04),transparent_70%)] pointer-events-none" />
 
@@ -143,14 +143,14 @@ export default function Evenements() {
           </motion.div>
           <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl font-bold text-white mb-4"
+            className="text-3xl md:text-5xl font-bold text-[#1A1205] mb-4"
             style={{ fontFamily: "var(--font-playfair)" }}>
             First Class{" "}
             <span className="text-gold-gradient italic">Events</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-white/40 text-sm md:text-base max-w-lg mx-auto"
+            className="text-[#2D2416] text-sm md:text-base max-w-lg mx-auto"
             style={{ fontFamily: "var(--font-inter)" }}>
             On ne loue pas que des voitures. On crée des expériences.
           </motion.p>
@@ -165,13 +165,13 @@ export default function Evenements() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.12, duration: 0.6 }}
-              className="group bg-[#0d0d0d] border border-white/6 p-8 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1 flex flex-col"
+              className="group bg-[#FFFFFF] border border-white/6 p-8 hover:border-[#C9A84C]/40 transition-all duration-300 hover:-translate-y-1 flex flex-col"
             >
               <span className="text-4xl mb-5 block">{ev.emoji}</span>
-              <h3 className="text-xl font-bold text-white mb-3" style={{ fontFamily: "var(--font-playfair)" }}>
+              <h3 className="text-xl font-bold text-[#1A1205] mb-3" style={{ fontFamily: "var(--font-playfair)" }}>
                 {ev.title}
               </h3>
-              <p className="text-white/45 text-sm leading-relaxed mb-6 flex-1" style={{ fontFamily: "var(--font-inter)" }}>
+              <p className="text-[#6B5C3E] text-sm leading-relaxed mb-6 flex-1" style={{ fontFamily: "var(--font-inter)" }}>
                 {ev.desc}
               </p>
               <button
@@ -196,13 +196,13 @@ export default function Evenements() {
         <div className="mb-20">
           <motion.p
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-            className="label text-center mb-8 text-white/30"
+            className="label text-center mb-8 text-[#2D2416]"
           >
             Nos événements en photos
           </motion.p>
           <div className="relative overflow-hidden">
-            <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#080808] to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#080808] to-transparent z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#FAF7F2] to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#FAF7F2] to-transparent z-10 pointer-events-none" />
             <div
               className="marquee-strip flex gap-4 w-max"
               style={{ animation: "marquee 40s linear infinite" }}
@@ -231,7 +231,7 @@ export default function Evenements() {
         <div>
           <motion.h3
             initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="text-2xl md:text-3xl font-bold text-white text-center mb-10"
+            className="text-2xl md:text-3xl font-bold text-[#1A1205] text-center mb-10"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Nos événements{" "}
@@ -246,18 +246,18 @@ export default function Evenements() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <div className="relative bg-[#0d0d0d] border border-gold/25 overflow-hidden group cursor-pointer hover:border-gold/50 transition-all duration-300"
+                <div className="relative bg-[#FFFFFF] border border-[#C9A84C]/40 overflow-hidden group cursor-pointer hover:border-gold/50 transition-all duration-300"
                   style={{ aspectRatio: "16/9" }}>
                   <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-14 h-14 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:bg-gold/20 group-hover:border-gold/40 transition-all duration-300">
+                    <div className="w-14 h-14 rounded-full bg-[#C9A84C]/8 border border-[#C9A84C]/40 flex items-center justify-center group-hover:bg-gold/20 group-hover:border-[#C9A84C]/40 transition-all duration-300">
                       <svg width="16" height="18" viewBox="0 0 16 18" fill="white" className="ml-1">
                         <path d="M0 0L16 9L0 18V0Z" />
                       </svg>
                     </div>
                   </div>
                 </div>
-                <p className="text-white/50 text-sm mt-3 text-center" style={{ fontFamily: "var(--font-inter)" }}>
+                <p className="text-[#2D2416] text-sm mt-3 text-center" style={{ fontFamily: "var(--font-inter)" }}>
                   {title}
                 </p>
               </motion.div>
@@ -268,7 +268,7 @@ export default function Evenements() {
 
       <div className="absolute bottom-0 inset-x-0">
         <div className="h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" />
-        <div className="h-px mt-px bg-gradient-to-r from-transparent via-gold/10 to-transparent" />
+        <div className="h-px mt-px bg-gradient-to-r from-transparent via-gold/25 to-transparent" />
       </div>
 
       <EventModal

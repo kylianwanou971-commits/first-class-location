@@ -79,7 +79,7 @@ function ModuleItem({ mod, index, isOpen, onToggle }: {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.08 }}
-      className={`border-b border-white/8 last:border-b-0 ${isOpen ? "bg-[#0d0d0d]" : "bg-transparent"} transition-colors`}
+      className={`border-b border-[#D4C5A9] last:border-b-0 ${isOpen ? "bg-[#FFFFFF]" : "bg-transparent"} transition-colors`}
     >
       <button
         onClick={onToggle}
@@ -87,7 +87,7 @@ function ModuleItem({ mod, index, isOpen, onToggle }: {
       >
         {/* Number */}
         <span
-          className={`text-2xl font-bold flex-shrink-0 transition-colors ${isOpen ? "text-gold" : "text-white/15"}`}
+          className={`text-2xl font-bold flex-shrink-0 transition-colors ${isOpen ? "text-gold" : "text-[#C9A84C]/50"}`}
           style={{ fontFamily: "var(--font-playfair)" }}
         >
           {mod.number}
@@ -96,12 +96,12 @@ function ModuleItem({ mod, index, isOpen, onToggle }: {
         {/* Title + duration */}
         <div className="flex-1 min-w-0">
           <p
-            className={`text-sm md:text-base font-semibold transition-colors ${isOpen ? "text-white" : "text-white/60 group-hover:text-white/80"}`}
+            className={`text-sm md:text-base font-semibold transition-colors ${isOpen ? "text-[#1A1205]" : "text-[#2D2416] group-hover:text-[#1A1205]"}`}
             style={{ fontFamily: "var(--font-inter)" }}
           >
             {mod.title}
           </p>
-          <p className="text-xs text-white/25 mt-0.5" style={{ fontFamily: "var(--font-inter)" }}>
+          <p className="text-xs text-[#6B5C3E] mt-0.5" style={{ fontFamily: "var(--font-inter)" }}>
             {mod.duration}
           </p>
         </div>
@@ -110,7 +110,7 @@ function ModuleItem({ mod, index, isOpen, onToggle }: {
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.25 }}
-          className={`flex-shrink-0 transition-colors ${isOpen ? "text-gold" : "text-white/25"}`}
+          className={`flex-shrink-0 transition-colors ${isOpen ? "text-gold" : "text-[#6B5C3E]"}`}
         >
           <ChevronDown size={18} />
         </motion.div>
@@ -131,13 +131,13 @@ function ModuleItem({ mod, index, isOpen, onToggle }: {
                 {mod.points.map((pt) => (
                   <div key={pt} className="flex items-start gap-2.5">
                     <CheckCircle size={13} className="text-gold flex-shrink-0 mt-0.5" />
-                    <span className="text-white/55 text-sm" style={{ fontFamily: "var(--font-inter)" }}>
+                    <span className="text-[#2D2416] text-sm" style={{ fontFamily: "var(--font-inter)" }}>
                       {pt}
                     </span>
                   </div>
                 ))}
               </div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold/8 border border-gold/20 rounded-sm">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold/8 border border-[#C9A84C]/40 rounded-sm">
                 <span className="text-gold text-xs" style={{ fontFamily: "var(--font-inter)" }}>🎯</span>
                 <span className="text-gold/80 text-xs font-medium" style={{ fontFamily: "var(--font-inter)" }}>
                   {mod.outcome}
@@ -172,7 +172,7 @@ export default function Programme() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl font-bold text-white mb-4"
+            className="text-3xl md:text-5xl font-bold text-[#1A1205] mb-4"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             5 modules pour{" "}
@@ -183,7 +183,7 @@ export default function Programme() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-white/40 text-base"
+            className="text-[#2D2416] text-base"
             style={{ fontFamily: "var(--font-inter)" }}
           >
             De la création de ta structure jusqu&apos;au premier million — tout est là.
@@ -195,7 +195,7 @@ export default function Programme() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="border border-white/8 rounded-sm overflow-hidden"
+          className="border border-[#D4C5A9] rounded-sm overflow-hidden"
         >
           {modules.map((mod, i) => (
             <ModuleItem
@@ -218,7 +218,7 @@ export default function Programme() {
           <a href="#formation" className="btn-primary">
             Accéder à ces 5 modules maintenant
           </a>
-          <p className="text-white/25 text-xs mt-3" style={{ fontFamily: "var(--font-inter)" }}>
+          <p className="text-[#6B5C3E] text-xs mt-3" style={{ fontFamily: "var(--font-inter)" }}>
             Accès immédiat · Paiement sécurisé
           </p>
         </motion.div>

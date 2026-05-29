@@ -91,10 +91,10 @@ function CarCard({ car, index }: { car: typeof fleet[0]; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.08, duration: 0.55 }}
-      className={`group relative bg-[#0d0d0d] overflow-hidden transition-all duration-400 ${borderCls}`}
+      className={`group relative bg-[#FFFFFF] overflow-hidden transition-all duration-400 ${borderCls}`}
     >
       {/* Image */}
-      <div className="relative aspect-[16/9] overflow-hidden bg-[#111]">
+      <div className="relative aspect-[16/9] overflow-hidden bg-[#FFFFFF]">
         <Image
           src={car.img}
           alt={car.name}
@@ -102,20 +102,20 @@ function CarCard({ car, index }: { car: typeof fleet[0]; index: number }) {
           className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#2C2C2E] via-transparent to-black/20" />
 
         {/* Badge */}
         <div className="absolute top-3 right-3">
           {car.badgeType === "available" ? (
             <span
-              className="text-[9px] font-bold tracking-widest uppercase text-emerald-400 border border-emerald-400/40 bg-black/70 px-2.5 py-1 rounded-sm"
+              className="text-[9px] font-bold tracking-widest uppercase text-emerald-400 border border-emerald-400/40 bg-black/10 px-2.5 py-1 rounded-sm"
               style={{ fontFamily: "var(--font-inter)" }}
             >
               {car.badge}
             </span>
           ) : (
             <span
-              className="text-[9px] font-bold tracking-widest uppercase text-gold border border-gold/60 bg-black/70 px-2.5 py-1 rounded-sm"
+              className="text-[9px] font-bold tracking-widest uppercase text-gold border border-gold/60 bg-black/10 px-2.5 py-1 rounded-sm"
               style={{ fontFamily: "var(--font-inter)" }}
             >
               {car.badge}
@@ -127,13 +127,13 @@ function CarCard({ car, index }: { car: typeof fleet[0]; index: number }) {
       {/* Content */}
       <div className="p-5">
         <p
-          className="text-[10px] tracking-widest uppercase text-white/30 mb-1"
+          className="text-[10px] tracking-widest uppercase text-[#2D2416] mb-1"
           style={{ fontFamily: "var(--font-inter)" }}
         >
           {car.category}
         </p>
         <h3
-          className="text-base font-bold text-white mb-0.5 group-hover:text-gold-gradient transition-all duration-300 leading-tight"
+          className="text-base font-bold text-[#1A1205] mb-0.5 group-hover:text-gold-gradient transition-all duration-300 leading-tight"
           style={{ fontFamily: "var(--font-playfair)" }}
         >
           {car.name}
@@ -145,13 +145,13 @@ function CarCard({ car, index }: { car: typeof fleet[0]; index: number }) {
           {car.tagline}
         </p>
         <p
-          className="text-white/40 text-xs mb-4"
+          className="text-[#2D2416] text-xs mb-4"
           style={{ fontFamily: "var(--font-inter)" }}
         >
           Prix sur demande
         </p>
         <p
-          className="text-gold/60 text-[10px] font-semibold uppercase tracking-widest text-center border border-gold/20 py-2"
+          className="text-gold/60 text-[10px] font-semibold uppercase tracking-widest text-center border border-[#C9A84C]/40 py-2"
           style={{ fontFamily: "var(--font-inter)" }}
         >
           Voiture disponible dans la formation
@@ -165,7 +165,7 @@ function CarCard({ car, index }: { car: typeof fleet[0]; index: number }) {
 
 export default function LocationVoitures() {
   return (
-    <section id="location" className="py-24 md:py-32 px-4 bg-[#080808] relative overflow-hidden">
+    <section id="location" className="py-24 md:py-32 px-4 bg-[#FAF7F2] relative overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(201,168,76,0.04),transparent_70%)] pointer-events-none" />
 
@@ -188,7 +188,7 @@ export default function LocationVoitures() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl font-bold text-white mb-4"
+            className="text-3xl md:text-5xl font-bold text-[#1A1205] mb-4"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Notre flotte —{" "}
@@ -200,7 +200,7 @@ export default function LocationVoitures() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-white/40 text-sm md:text-base max-w-xl mx-auto"
+            className="text-[#2D2416] text-sm md:text-base max-w-xl mx-auto"
             style={{ fontFamily: "var(--font-inter)" }}
           >
             Mariage, anniversaire, voyage d&apos;affaires, shooting photo ou simple plaisir.
@@ -218,7 +218,7 @@ export default function LocationVoitures() {
 
       <div className="absolute bottom-0 inset-x-0">
         <div className="h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" />
-        <div className="h-px mt-px bg-gradient-to-r from-transparent via-gold/10 to-transparent" />
+        <div className="h-px mt-px bg-gradient-to-r from-transparent via-gold/25 to-transparent" />
       </div>
     </section>
   );

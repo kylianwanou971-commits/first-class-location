@@ -43,7 +43,7 @@ function FAQItem({ item, index, isOpen, onToggle }: {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.07 }}
-      className="border-b border-white/8 last:border-b-0"
+      className="border-b border-[#D4C5A9] last:border-b-0"
     >
       <button
         onClick={onToggle}
@@ -51,18 +51,18 @@ function FAQItem({ item, index, isOpen, onToggle }: {
       >
         <div
           className={`flex-shrink-0 w-7 h-7 border flex items-center justify-center mt-0.5 transition-colors duration-200 ${
-            isOpen ? "border-gold bg-gold/10" : "border-white/15 group-hover:border-white/30"
+            isOpen ? "border-gold bg-gold/10" : "border-[#D4C5A9] group-hover:border-white/30"
           }`}
         >
           {isOpen ? (
             <Minus size={13} className="text-gold" />
           ) : (
-            <Plus size={13} className="text-white/50 group-hover:text-white/70 transition-colors" />
+            <Plus size={13} className="text-[#2D2416] group-hover:text-[#2D2416] transition-colors" />
           )}
         </div>
         <p
           className={`text-sm md:text-base font-medium transition-colors duration-200 flex-1 ${
-            isOpen ? "text-white" : "text-white/60 group-hover:text-white/80"
+            isOpen ? "text-[#1A1205]" : "text-[#2D2416] group-hover:text-[#1A1205]"
           }`}
           style={{ fontFamily: "var(--font-inter)" }}
         >
@@ -80,7 +80,7 @@ function FAQItem({ item, index, isOpen, onToggle }: {
             className="overflow-hidden"
           >
             <p
-              className="text-white/45 text-sm leading-relaxed pb-6 pl-11"
+              className="text-[#2D2416] text-sm leading-relaxed pb-6 pl-11"
               style={{ fontFamily: "var(--font-inter)" }}
             >
               {item.a}
@@ -96,7 +96,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-24 md:py-32 px-4 bg-[#080808] relative">
+    <section id="faq" className="py-24 md:py-32 px-4 bg-[#FAF7F2] relative">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
 
       <div className="max-w-3xl mx-auto">
@@ -115,7 +115,7 @@ export default function FAQ() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl font-bold text-white"
+            className="text-3xl md:text-5xl font-bold text-[#1A1205]"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Tu te poses des
@@ -144,7 +144,7 @@ export default function FAQ() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <p className="text-white/30 text-sm mb-4" style={{ fontFamily: "var(--font-inter)" }}>
+          <p className="text-[#2D2416] text-sm mb-4" style={{ fontFamily: "var(--font-inter)" }}>
             Tu as d&apos;autres questions ? On répond personnellement.
           </p>
           <a href="#contact" className="btn-secondary">

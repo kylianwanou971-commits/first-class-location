@@ -60,11 +60,11 @@ function VideoCard({ t, index }: { t: typeof testimonials[0]; index: number }) {
     >
       {/* 9:16 card */}
       <div
-        className="relative bg-[#0d0d0d] border border-white/8 rounded-xl overflow-hidden group cursor-pointer hover:border-gold/30 transition-all duration-300"
+        className="relative bg-[#FFFFFF] border border-[#D4C5A9] rounded-xl overflow-hidden group cursor-pointer hover:border-[#C9A84C]/40 transition-all duration-300"
         style={{ aspectRatio: "9/16" }}
       >
         {/* Gradient background */}
-        <div className={`absolute inset-0 bg-gradient-to-b ${t.color} via-[#0d0d0d] to-[#0d0d0d]`} />
+        <div className={`absolute inset-0 bg-gradient-to-b ${t.color} via-[#2C2C2E] to-[#EDE8DE]`} />
 
         {/* Top stars */}
         <div className="absolute top-4 left-4 flex gap-0.5">
@@ -75,7 +75,7 @@ function VideoCard({ t, index }: { t: typeof testimonials[0]; index: number }) {
 
         {/* Initial circle (fake avatar) */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[65%]">
-          <div className="w-16 h-16 rounded-full bg-gold/10 border-2 border-gold/30 flex items-center justify-center mb-4 mx-auto">
+          <div className="w-16 h-16 rounded-full bg-gold/10 border-2 border-[#C9A84C]/40 flex items-center justify-center mb-4 mx-auto">
             <span className="text-gold text-xl font-bold" style={{ fontFamily: "var(--font-playfair)" }}>
               {t.name[0]}
             </span>
@@ -84,8 +84,8 @@ function VideoCard({ t, index }: { t: typeof testimonials[0]; index: number }) {
 
         {/* Play button */}
         <div className="absolute inset-0 flex items-center justify-center pt-16">
-          <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:bg-gold/20 group-hover:border-gold/40 transition-all duration-300">
-            <Play size={16} fill="white" className="text-white ml-0.5" />
+          <div className="w-12 h-12 rounded-full bg-[#C9A84C]/8 border border-[#C9A84C]/40 flex items-center justify-center group-hover:bg-gold/20 group-hover:border-[#C9A84C]/40 transition-all duration-300">
+            <Play size={16} fill="white" className="text-[#1A1205] ml-0.5" />
           </div>
         </div>
 
@@ -94,10 +94,10 @@ function VideoCard({ t, index }: { t: typeof testimonials[0]; index: number }) {
           <p className="text-gold text-[10px] font-bold uppercase tracking-widest mb-1" style={{ fontFamily: "var(--font-inter)" }}>
             Témoignage vidéo
           </p>
-          <p className="text-white text-xs font-semibold leading-tight" style={{ fontFamily: "var(--font-inter)" }}>
+          <p className="text-[#1A1205] text-xs font-semibold leading-tight" style={{ fontFamily: "var(--font-inter)" }}>
             {t.result}
           </p>
-          <p className="text-white/40 text-[10px] mt-0.5" style={{ fontFamily: "var(--font-inter)" }}>
+          <p className="text-[#2D2416] text-[10px] mt-0.5" style={{ fontFamily: "var(--font-inter)" }}>
             {t.detail}
           </p>
         </div>
@@ -105,10 +105,10 @@ function VideoCard({ t, index }: { t: typeof testimonials[0]; index: number }) {
 
       {/* Below card */}
       <div className="mt-3 px-1">
-        <p className="text-white/80 text-xs font-semibold" style={{ fontFamily: "var(--font-inter)" }}>
+        <p className="text-[#1A1205] text-xs font-semibold" style={{ fontFamily: "var(--font-inter)" }}>
           {t.name}
         </p>
-        <p className="text-white/30 text-[10px]" style={{ fontFamily: "var(--font-inter)" }}>
+        <p className="text-[#2D2416] text-[10px]" style={{ fontFamily: "var(--font-inter)" }}>
           {t.city}
         </p>
       </div>
@@ -120,7 +120,7 @@ export default function Temoignages() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section id="temoignages" className="py-24 md:py-32 bg-[#080808] relative overflow-hidden">
+    <section id="temoignages" className="py-24 md:py-32 bg-[#F0EBE1] relative overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/15 to-transparent" />
 
       {/* Header */}
@@ -139,7 +139,7 @@ export default function Temoignages() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl font-bold text-white"
+            className="text-3xl md:text-5xl font-bold text-[#1A1205]"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Est-ce que ça marche
@@ -151,7 +151,7 @@ export default function Temoignages() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-white/40 text-sm max-w-xs md:text-right"
+            className="text-[#2D2416] text-sm max-w-xs md:text-right"
             style={{ fontFamily: "var(--font-inter)" }}
           >
             Regarde les résultats de nos élèves. Eux aussi partaient de zéro.
@@ -173,7 +173,7 @@ export default function Temoignages() {
       </div>
 
       {/* Mobile scroll hint */}
-      <p className="text-center text-white/20 text-xs mt-4 md:hidden" style={{ fontFamily: "var(--font-inter)" }}>
+      <p className="text-center text-[#6B5C3E] text-xs mt-4 md:hidden" style={{ fontFamily: "var(--font-inter)" }}>
         ← Fais glisser pour voir plus →
       </p>
 

@@ -38,7 +38,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex flex-col items-center justify-center px-4 pb-10 overflow-hidden bg-[#0a0a0a] min-h-screen"
+      className="relative flex flex-col items-center justify-center px-4 pb-10 overflow-hidden bg-[#FAF7F2] min-h-screen"
       style={{ paddingTop: 90 }}
     >
       {/* ── Fond image ── */}
@@ -55,9 +55,9 @@ export default function Hero() {
           />
         </motion.div>
         {/* Overlay 0.6 */}
-        <div className="absolute inset-0 bg-black/60" />
-        {/* Dégradé bas 150px */}
-        <div className="absolute bottom-0 inset-x-0 h-[150px] bg-gradient-to-t from-[#0a0a0a] to-transparent" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(26,18,5,0.72) 0%, rgba(26,18,5,0.55) 50%, rgba(250,247,242,0.95) 90%, rgba(250,247,242,1) 100%)" }} />
+        {/* Transition fluide vers la section suivante */}
+        <div className="absolute bottom-0 inset-x-0 h-[80px] bg-gradient-to-t from-[#FAF7F2] to-transparent" />
       </div>
 
       {/* ── Particules dorées ── */}
@@ -97,13 +97,13 @@ export default function Hero() {
           style={{ fontFamily: "var(--font-playfair)" }}
           aria-label="La seule formation du marché où un véhicule t'attend à la fin."
         >
-          <span className="block text-6xl text-white/90 mb-1">
+          <span className="block text-6xl text-white mb-1">
             {["La", "seule", "formation", "du", "marché"].map((w, i) => (
               <motion.span key={i} custom={i} variants={wordVariants} initial="hidden" animate="visible"
                 className="inline-block mr-[0.3em]">{w}</motion.span>
             ))}
           </span>
-          <span className="block text-6xl text-white/90 mb-2">
+          <span className="block text-6xl text-white mb-2">
             {["où", "un", "véhicule", "t'attend"].map((w, i) => (
               <motion.span key={i} custom={5 + i} variants={wordVariants} initial="hidden" animate="visible"
                 className="inline-block mr-[0.3em]">{w}</motion.span>
@@ -120,7 +120,7 @@ export default function Hero() {
         {/* 3. Sous-titre — text-lg, mb 24px */}
         <motion.p
           custom={3} variants={lineVariants} initial="hidden" animate="visible"
-          className="text-lg text-white/55 max-w-xl mx-auto mb-6 leading-relaxed"
+          className="text-lg text-white/70 max-w-xl mx-auto mb-6 leading-relaxed"
           style={{ fontFamily: "var(--font-inter)" }}
         >
           15 ans d&apos;expérience · Agence lancée en 60 jours
@@ -141,10 +141,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30, scale: 0.97 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ delay: 1.2, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="relative w-full max-w-[780px] mx-auto overflow-hidden border border-gold/40"
+          className="relative w-full max-w-[780px] mx-auto overflow-hidden border border-gold/20"
           style={{ height: 440, borderRadius: 12 }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1a1200] via-[#0d0d0d] to-[#0a0a0a]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1a1200] via-[#1a1a1a] to-[#111111]" />
           <div
             className="absolute inset-0 opacity-[0.03]"
             style={{
@@ -168,7 +168,7 @@ export default function Hero() {
             </div>
           </button>
           <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-5">
-            <p className="text-white/40 text-xs text-center" style={{ fontFamily: "var(--font-inter)" }}>
+            <p className="text-white/30 text-xs text-center" style={{ fontFamily: "var(--font-inter)" }}>
               Clique pour regarder la présentation complète
             </p>
           </div>

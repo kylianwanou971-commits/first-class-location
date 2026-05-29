@@ -42,7 +42,7 @@ function Counter({ value, prefix, suffix }: { value: number; prefix: string; suf
 
 export default function ChiffresCles() {
   return (
-    <section className="py-24 md:py-32 px-4 relative overflow-hidden">
+    <section className="py-24 md:py-32 px-4 bg-[#F0EBE1] relative overflow-hidden">
       {/* BG accent */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,168,76,0.04),transparent_70%)] pointer-events-none" />
 
@@ -64,7 +64,7 @@ export default function ChiffresCles() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl font-bold text-white mb-4"
+            className="text-3xl md:text-5xl font-bold text-[#1A1205] mb-4"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Tu veux toi aussi lancer ta{" "}
@@ -75,7 +75,7 @@ export default function ChiffresCles() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-white/40 text-base max-w-xl mx-auto"
+            className="text-[#2D2416] text-base max-w-xl mx-auto"
             style={{ fontFamily: "var(--font-inter)" }}
           >
             First Class t&apos;accompagne, te forme, et te fournit même le véhicule pour démarrer.
@@ -83,7 +83,7 @@ export default function ChiffresCles() {
         </div>
 
         {/* Stats grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#D4C5A9]">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
@@ -91,7 +91,7 @@ export default function ChiffresCles() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="bg-[#0a0a0a] p-8 md:p-10 flex flex-col items-center text-center group hover:bg-[#0d0d0d] transition-colors"
+              className="bg-[#FAF7F2] p-8 md:p-10 flex flex-col items-center text-center group hover:bg-[#FFFFFF] transition-colors"
             >
               <p
                 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gold-gradient mb-2"
@@ -100,13 +100,13 @@ export default function ChiffresCles() {
                 <Counter value={s.value} prefix={s.prefix} suffix={s.suffix} />
               </p>
               <p
-                className="text-white/80 text-sm font-semibold uppercase tracking-widest mb-1"
+                className="text-[#1A1205] text-sm font-semibold uppercase tracking-widest mb-1"
                 style={{ fontFamily: "var(--font-inter)" }}
               >
                 {s.label}
               </p>
               <p
-                className="text-white/30 text-xs"
+                className="text-[#2D2416] text-xs"
                 style={{ fontFamily: "var(--font-inter)" }}
               >
                 {s.sublabel}

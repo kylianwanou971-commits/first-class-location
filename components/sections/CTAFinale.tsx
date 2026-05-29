@@ -74,7 +74,7 @@ export default function CTAFinale() {
   return (
     <section id="contact" className="relative py-24 md:py-36 px-4 overflow-hidden">
       {/* Gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0d0700] to-[#0a0a0a]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#FAF7F2] via-[#0d0700] to-[#FAF7F2]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,168,76,0.1),transparent_65%)]" />
 
       {/* Top / bottom lines */}
@@ -100,7 +100,7 @@ export default function CTAFinale() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight"
+          className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#1A1205] mb-4 leading-tight"
           style={{ fontFamily: "var(--font-playfair)" }}
         >
           Prêt à lancer
@@ -113,12 +113,12 @@ export default function CTAFinale() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-white/50 text-base md:text-lg mb-10 max-w-xl mx-auto"
+          className="text-[#2D2416] text-base md:text-lg mb-10 max-w-xl mx-auto"
           style={{ fontFamily: "var(--font-inter)" }}
         >
           Places limitées — Accès immédiat dès ton inscription.
           <br />
-          <span className="text-white/30">Le prix augmente à la fermeture de ce timer.</span>
+          <span className="text-[#2D2416]">Le prix augmente à la fermeture de ce timer.</span>
         </motion.p>
 
         {/* Countdown */}
@@ -144,7 +144,7 @@ export default function CTAFinale() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="bg-[#0d0d0d] border border-gold/20 p-8 md:p-10 max-w-lg mx-auto mb-8 relative overflow-hidden"
+          className="bg-[#FFFFFF] border border-[#C9A84C]/40 p-8 md:p-10 max-w-lg mx-auto mb-8 relative overflow-hidden"
         >
           {/* Corner accent */}
           <div className="absolute top-0 right-0 w-20 h-20 bg-gold/5 rounded-bl-full" />
@@ -155,7 +155,7 @@ export default function CTAFinale() {
             {included.map((item) => (
               <div key={item} className="flex items-start gap-2.5">
                 <CheckCircle size={13} className="text-gold flex-shrink-0 mt-0.5" />
-                <span className="text-white/60 text-xs" style={{ fontFamily: "var(--font-inter)" }}>
+                <span className="text-[#2D2416] text-xs" style={{ fontFamily: "var(--font-inter)" }}>
                   {item}
                 </span>
               </div>
@@ -163,10 +163,10 @@ export default function CTAFinale() {
           </div>
 
           {/* Price */}
-          <div className="border-t border-white/8 pt-6 mb-6">
+          <div className="border-t border-[#D4C5A9] pt-6 mb-6">
             <div className="flex items-end justify-center gap-3">
               <span
-                className="text-white/25 text-lg line-through"
+                className="text-[#6B5C3E] text-lg line-through"
                 style={{ fontFamily: "var(--font-inter)" }}
               >
                 1 490 €
@@ -178,7 +178,7 @@ export default function CTAFinale() {
                 990 €
               </span>
             </div>
-            <p className="text-white/25 text-xs mt-1" style={{ fontFamily: "var(--font-inter)" }}>
+            <p className="text-[#6B5C3E] text-xs mt-1" style={{ fontFamily: "var(--font-inter)" }}>
               Paiement unique · Accès à vie
             </p>
           </div>
@@ -195,17 +195,17 @@ export default function CTAFinale() {
           {/* Trust row */}
           <div className="flex items-center justify-center gap-4 mt-5">
             <div className="flex items-center gap-1.5">
-              <Lock size={11} className="text-white/25" />
-              <span className="text-white/25 text-[10px]" style={{ fontFamily: "var(--font-inter)" }}>
+              <Lock size={11} className="text-[#6B5C3E]" />
+              <span className="text-[#6B5C3E] text-[10px]" style={{ fontFamily: "var(--font-inter)" }}>
                 Paiement sécurisé
               </span>
             </div>
-            <span className="text-white/15 text-xs">·</span>
-            <span className="text-white/25 text-[10px]" style={{ fontFamily: "var(--font-inter)" }}>
+            <span className="text-[#D4C5A9] text-xs">·</span>
+            <span className="text-[#6B5C3E] text-[10px]" style={{ fontFamily: "var(--font-inter)" }}>
               Accès immédiat
             </span>
-            <span className="text-white/15 text-xs">·</span>
-            <span className="text-white/25 text-[10px]" style={{ fontFamily: "var(--font-inter)" }}>
+            <span className="text-[#D4C5A9] text-xs">·</span>
+            <span className="text-[#6B5C3E] text-[10px]" style={{ fontFamily: "var(--font-inter)" }}>
               Support inclus
             </span>
           </div>
@@ -217,7 +217,7 @@ export default function CTAFinale() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="text-white/25 text-xs"
+          className="text-[#6B5C3E] text-xs"
           style={{ fontFamily: "var(--font-inter)" }}
         >
           +50 entrepreneurs ont déjà fait confiance à cette formation · Résultats variables selon l&apos;implication

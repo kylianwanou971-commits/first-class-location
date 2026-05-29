@@ -5,7 +5,7 @@ import { Play } from "lucide-react";
 
 export default function VSLSection() {
   return (
-    <section className="bg-[#0a0a0a] px-4 pb-10">
+    <section className="bg-[#FAF7F2] px-4 pb-10">
       <motion.div
         initial={{ opacity: 0, y: 30, scale: 0.97 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -14,9 +14,9 @@ export default function VSLSection() {
         className="relative w-full max-w-[700px] mx-auto"
         style={{ height: "clamp(160px, 30vw, 250px)" }}
       >
-        <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-gold/40 via-gold/10 to-transparent" />
-        <div className="relative rounded-2xl overflow-hidden bg-[#0d0d0d] border border-white/5 animate-pulse-gold h-full">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1a1200] via-[#0d0d0d] to-[#0a0a0a]" />
+        <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-gold/40 via-gold/25 to-transparent" />
+        <div className="relative rounded-2xl overflow-hidden bg-[#1a1a1a] border border-white/5 animate-pulse-gold h-full">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1a1200] via-[#1a1a1a] to-[#111111]" />
           <div
             className="absolute inset-0 opacity-[0.03]"
             style={{
@@ -38,7 +38,7 @@ export default function VSLSection() {
             </div>
           </button>
           <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-5">
-            <p className="text-white/40 text-xs text-center" style={{ fontFamily: "var(--font-inter)" }}>
+            <p className="text-white/30 text-xs text-center" style={{ fontFamily: "var(--font-inter)" }}>
               Clique pour regarder la présentation complète
             </p>
           </div>

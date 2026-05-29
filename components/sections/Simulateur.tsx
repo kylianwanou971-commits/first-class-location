@@ -18,7 +18,7 @@ function GoldSlider({
   return (
     <div>
       <div className="flex items-center justify-between mb-3">
-        <span className="label text-white/40" style={{ fontFamily: "var(--font-inter)" }}>
+        <span className="label text-[#2D2416]" style={{ fontFamily: "var(--font-inter)" }}>
           {label}
         </span>
         <motion.span
@@ -60,7 +60,7 @@ export default function Simulateur() {
   const fmt = (n: number) => n.toLocaleString("fr-FR");
 
   return (
-    <section id="simulateur" className="py-24 md:py-32 px-4 bg-[#080808] relative overflow-hidden">
+    <section id="simulateur" className="py-24 md:py-32 px-4 bg-[#FAF7F2] relative overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(201,168,76,0.04),transparent_70%)] pointer-events-none" />
 
@@ -82,7 +82,7 @@ export default function Simulateur() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl font-bold text-white mb-4"
+            className="text-3xl md:text-5xl font-bold text-[#1A1205] mb-4"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Simule tes{" "}
@@ -93,7 +93,7 @@ export default function Simulateur() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-white/40 text-sm md:text-base max-w-md mx-auto"
+            className="text-[#2D2416] text-sm md:text-base max-w-md mx-auto"
             style={{ fontFamily: "var(--font-inter)" }}
           >
             Ajuste les sliders et découvre le potentiel de ton agence.
@@ -108,7 +108,7 @@ export default function Simulateur() {
           className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-6 lg:items-stretch"
         >
           {/* Sliders */}
-          <div className="bg-[#0d0d0d] border border-white/6 p-5 flex flex-col justify-between h-full">
+          <div className="bg-[#FFFFFF] border border-white/6 p-5 flex flex-col justify-between h-full">
             <GoldSlider
               label="Loyer mensuel du véhicule"
               value={loyer}
@@ -140,7 +140,7 @@ export default function Simulateur() {
             {/* Séparateur + texte explicatif */}
             <div>
               <div className="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent mb-5" />
-              <p className="text-white/25 text-[11px] leading-relaxed mb-6" style={{ fontFamily: "var(--font-inter)" }}>
+              <p className="text-[#6B5C3E] text-[11px] leading-relaxed mb-6" style={{ fontFamily: "var(--font-inter)" }}>
                 Basé sur 1 véhicule. Multiplie par le nombre de véhicules dans ta flotte pour estimer ton CA total.
               </p>
               <GoldSlider
@@ -157,8 +157,8 @@ export default function Simulateur() {
 
           {/* Results */}
           <div className="flex flex-col">
-            <div className="bg-[#0d0d0d] border border-white/6 p-6 flex-1 flex flex-col">
-              <p className="label text-white/30 mb-4" style={{ fontFamily: "var(--font-inter)" }}>
+            <div className="bg-[#FFFFFF] border border-white/6 p-6 flex-1 flex flex-col">
+              <p className="label text-[#2D2416] mb-4" style={{ fontFamily: "var(--font-inter)" }}>
                 Résultats en temps réel
               </p>
 
@@ -168,7 +168,7 @@ export default function Simulateur() {
                 initial={{ opacity: 0.3, x: 4 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.15 }}
-                className="text-white/25 text-[10px] uppercase tracking-widest mb-3"
+                className="text-[#6B5C3E] text-[10px] uppercase tracking-widest mb-3"
                 style={{ fontFamily: "var(--font-inter)" }}
               >
                 {vehicules} véhicule{vehicules > 1 ? "s" : ""} dans ta flotte
@@ -176,7 +176,7 @@ export default function Simulateur() {
 
               {/* CA */}
               <div className="py-3.5 border-b border-white/6">
-                <p className="text-white/40 text-xs mb-1" style={{ fontFamily: "var(--font-inter)" }}>
+                <p className="text-[#2D2416] text-xs mb-1" style={{ fontFamily: "var(--font-inter)" }}>
                   Chiffre d&apos;affaires hors taxes par mois
                 </p>
                 <motion.p
@@ -184,7 +184,7 @@ export default function Simulateur() {
                   initial={{ opacity: 0.3, x: 4 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.15 }}
-                  className="font-bold text-xl text-white"
+                  className="font-bold text-xl text-[#1A1205]"
                   style={{ fontFamily: "var(--font-inter)" }}
                 >
                   {fmt(ca)} €
@@ -193,7 +193,7 @@ export default function Simulateur() {
 
               {/* Loyer total */}
               <div className="py-3.5 border-b border-white/6">
-                <p className="text-white/40 text-xs mb-1" style={{ fontFamily: "var(--font-inter)" }}>
+                <p className="text-[#2D2416] text-xs mb-1" style={{ fontFamily: "var(--font-inter)" }}>
                   Loyer total des véhicules
                 </p>
                 <motion.p
@@ -209,8 +209,8 @@ export default function Simulateur() {
               </div>
 
               {/* Bénéfice — highlighted */}
-              <div className="my-3 p-4 bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.08),transparent_70%)] border border-gold/20">
-                <p className="text-white/30 text-[10px] uppercase tracking-widest mb-1" style={{ fontFamily: "var(--font-inter)" }}>
+              <div className="my-3 p-4 bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.08),transparent_70%)] border border-[#C9A84C]/40">
+                <p className="text-[#2D2416] text-[10px] uppercase tracking-widest mb-1" style={{ fontFamily: "var(--font-inter)" }}>
                   Bénéfice hors taxes avant impôt
                 </p>
                 <motion.p
@@ -227,7 +227,7 @@ export default function Simulateur() {
 
               {/* Annuel */}
               <div className="flex items-center justify-between py-3 mt-auto">
-                <span className="text-white/40 text-xs" style={{ fontFamily: "var(--font-inter)" }}>
+                <span className="text-[#2D2416] text-xs" style={{ fontFamily: "var(--font-inter)" }}>
                   Revenus annuel estimé
                 </span>
                 <motion.span
@@ -248,14 +248,14 @@ export default function Simulateur() {
               <ArrowRight size={14} />
             </a>
 
-            <p className="text-white/20 text-[10px] text-center mt-3 leading-relaxed" style={{ fontFamily: "var(--font-inter)" }}>
+            <p className="text-[#6B5C3E] text-[10px] text-center mt-3 leading-relaxed" style={{ fontFamily: "var(--font-inter)" }}>
               Simulation indicative. Les résultats varient selon le marché et la gestion.
             </p>
           </div>
         </motion.div>
       </div>
 
-      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/10 to-transparent" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/25 to-transparent" />
     </section>
   );
 }

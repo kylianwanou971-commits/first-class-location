@@ -9,7 +9,6 @@ import LogosBandeau from "@/components/sections/LogosBandeau";
 import OffreFormation from "@/components/sections/OffreFormation";
 import PourquoiFormation from "@/components/sections/PourquoiFormation";
 import Programme from "@/components/sections/Programme";
-import LLDPro from "@/components/sections/LLDPro";
 import Evenements from "@/components/sections/Evenements";
 import FAQ from "@/components/sections/FAQ";
 import Footer from "@/components/sections/Footer";
@@ -28,7 +27,6 @@ export default function Page() {
       <OffreFormation />
       <PourquoiFormation />
       <Programme />
-      <LLDPro />
       <Evenements />
       <OffreFormation />
       <FAQ />

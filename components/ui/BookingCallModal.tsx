@@ -40,7 +40,7 @@ export default function BookingCallModal({ isOpen, onClose }: BookingCallModalPr
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100]"
+            className="fixed inset-0 bg-black/10 backdrop-blur-sm z-[100]"
           />
 
           {/* Modal */}
@@ -51,7 +51,7 @@ export default function BookingCallModal({ isOpen, onClose }: BookingCallModalPr
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             className="fixed inset-0 flex items-center justify-center z-[101] px-4"
           >
-            <div className="bg-[#111111] border border-[rgba(201,168,76,0.3)] w-full max-w-lg p-8 relative">
+            <div className="bg-[#FAF7F2] border border-[rgba(201,168,76,0.3)] w-full max-w-lg p-8 relative">
               {/* Close button */}
               <button
                 onClick={onClose}
@@ -63,7 +63,7 @@ export default function BookingCallModal({ isOpen, onClose }: BookingCallModalPr
 
               {/* Header */}
               <div className="flex items-center gap-3 mb-2">
-                <div className="w-8 h-8 bg-gold/10 border border-gold/30 flex items-center justify-center">
+                <div className="w-8 h-8 bg-gold/10 border border-[#C9A84C]/40 flex items-center justify-center">
                   <Phone size={16} className="text-gold" />
                 </div>
                 <span
@@ -89,7 +89,7 @@ export default function BookingCallModal({ isOpen, onClose }: BookingCallModalPr
               </p>
 
               {/* Booking widget placeholder */}
-              <div className="border border-[rgba(201,168,76,0.15)] p-6 bg-[#0d0d0d] min-h-[200px] flex items-center justify-center">
+              <div className="border border-[rgba(201,168,76,0.15)] p-6 bg-[#F0EBE1] min-h-[200px] flex items-center justify-center">
                 {BOOKING_URL ? (
                   <iframe
                     src={BOOKING_URL}

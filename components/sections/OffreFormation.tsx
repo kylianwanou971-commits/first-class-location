@@ -30,14 +30,14 @@ function Countdown() {
       {[{ label: "HH", value: time.h }, { label: "MM", value: time.m }, { label: "SS", value: time.s }].map(({ label, value }, i) => (
         <div key={label} className="flex items-center gap-2">
           <div className="flex flex-col items-center">
-            <div className="bg-[#1a0000] border border-red-500/30 px-3 py-2 md:px-5 md:py-3 min-w-[52px] md:min-w-[68px] text-center">
-              <span className="text-red-400 text-xl md:text-3xl font-bold tabular-nums" style={{ fontFamily: "var(--font-inter)" }}>
+            <div className="bg-[#1A1205] border border-[#C9A84C]/30 px-3 py-2 md:px-5 md:py-3 min-w-[52px] md:min-w-[68px] text-center">
+              <span className="text-[#C9A84C] text-xl md:text-3xl font-bold tabular-nums" style={{ fontFamily: "var(--font-inter)" }}>
                 {pad(value)}
               </span>
             </div>
-            <span className="text-red-400/40 text-[9px] uppercase tracking-widest mt-1" style={{ fontFamily: "var(--font-inter)" }}>{label}</span>
+            <span className="text-[#C9A84C]/40 text-[9px] uppercase tracking-widest mt-1" style={{ fontFamily: "var(--font-inter)" }}>{label}</span>
           </div>
-          {i < 2 && <span className="text-red-400/60 text-xl md:text-2xl font-bold mb-3">:</span>}
+          {i < 2 && <span className="text-[#C9A84C]/60 text-xl md:text-2xl font-bold mb-3">:</span>}
         </div>
       ))}
     </div>
@@ -55,54 +55,54 @@ function ContactModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
 
   const update = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm(f => ({ ...f, [k]: e.target.value }));
-  const cls = "w-full bg-[#111] border border-white/10 px-3 py-2.5 text-white text-sm focus:outline-none focus:border-gold/50 transition-colors";
+  const cls = "w-full bg-[#FAF7F2] border border-[#C9A84C]/40 px-3 py-2.5 text-[#1A1205] text-sm focus:outline-none focus:border-gold/50 transition-colors";
 
   return (
     <AnimatePresence>
       {isOpen && (
         <>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            onClick={onClose} className="fixed inset-0 bg-black/80 z-50 backdrop-blur-sm" />
+            onClick={onClose} className="fixed inset-0 bg-[#1A1205]/60 z-50 backdrop-blur-sm" />
           <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-8 pointer-events-none">
             <motion.div
               initial={{ opacity: 0, scale: 0.93, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.93, y: 20 }}
               transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="bg-[#0d0d0d] border border-gold/30 w-full max-w-lg relative pointer-events-auto max-h-[90vh] overflow-y-auto"
+              className="bg-[#FFFFFF] border border-[#C9A84C]/40 w-full max-w-lg relative pointer-events-auto max-h-[90vh] overflow-y-auto"
             >
               <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
-              <button onClick={onClose} className="absolute top-4 right-4 text-white/30 hover:text-white transition-colors" aria-label="Fermer">
+              <button onClick={onClose} className="absolute top-4 right-4 text-[#2D2416] hover:text-[#1A1205] transition-colors" aria-label="Fermer">
                 <X size={20} />
               </button>
               <div className="p-7">
                 {!submitted ? (
                   <>
                     <p className="label mb-1.5">Accompagnement 1:1</p>
-                    <h3 className="text-xl font-bold text-white mb-6" style={{ fontFamily: "var(--font-playfair)" }}>
+                    <h3 className="text-xl font-bold text-[#1A1205] mb-6" style={{ fontFamily: "var(--font-playfair)" }}>
                       Réserve ton appel avec Jessy
                     </h3>
                     <form onSubmit={e => { e.preventDefault(); setSubmitted(true); }} className="space-y-4">
                       <div className="grid grid-cols-2 gap-3">
                         <div>
-                          <label className="text-white/40 text-[10px] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>Prénom *</label>
+                          <label className="text-[#2D2416] text-[10px] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>Prénom *</label>
                           <input required type="text" value={form.prenom} onChange={update("prenom")} className={cls} style={{ fontFamily: "var(--font-inter)" }} />
                         </div>
                         <div>
-                          <label className="text-white/40 text-[10px] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>Nom *</label>
+                          <label className="text-[#2D2416] text-[10px] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>Nom *</label>
                           <input required type="text" value={form.nom} onChange={update("nom")} className={cls} style={{ fontFamily: "var(--font-inter)" }} />
                         </div>
                       </div>
                       <div>
-                        <label className="text-white/40 text-[10px] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>Téléphone *</label>
+                        <label className="text-[#2D2416] text-[10px] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>Téléphone *</label>
                         <input required type="tel" value={form.telephone} onChange={update("telephone")} className={cls} style={{ fontFamily: "var(--font-inter)" }} />
                       </div>
                       <div>
-                        <label className="text-white/40 text-[10px] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>Email *</label>
+                        <label className="text-[#2D2416] text-[10px] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>Email *</label>
                         <input required type="email" value={form.email} onChange={update("email")} className={cls} style={{ fontFamily: "var(--font-inter)" }} />
                       </div>
                       <div>
-                        <label className="text-white/40 text-[10px] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>Parle-nous de ton projet</label>
+                        <label className="text-[#2D2416] text-[10px] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-inter)" }}>Parle-nous de ton projet</label>
                         <textarea rows={3} value={form.message} onChange={update("message")} className={`${cls} resize-none`} style={{ fontFamily: "var(--font-inter)" }} />
                       </div>
                       <button type="submit" className="btn-primary w-full justify-center py-4">
@@ -113,8 +113,8 @@ function ContactModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
                 ) : (
                   <div className="text-center py-10">
                     <CheckCircle size={52} className="text-gold mx-auto mb-5" />
-                    <h3 className="text-xl font-bold text-white mb-2" style={{ fontFamily: "var(--font-playfair)" }}>Demande envoyée !</h3>
-                    <p className="text-white/50 text-sm mb-6" style={{ fontFamily: "var(--font-inter)" }}>Jessy vous contacte sous 24h ✓</p>
+                    <h3 className="text-xl font-bold text-[#1A1205] mb-2" style={{ fontFamily: "var(--font-playfair)" }}>Demande envoyée !</h3>
+                    <p className="text-[#2D2416] text-sm mb-6" style={{ fontFamily: "var(--font-inter)" }}>Jessy vous contacte sous 24h ✓</p>
                     <button onClick={onClose} className="btn-secondary text-xs">Fermer</button>
                   </div>
                 )}
@@ -155,7 +155,7 @@ export default function OffreFormation() {
   const [contactOpen, setContactOpen] = useState(false);
 
   return (
-    <section id="formation" className="py-24 md:py-32 px-4 bg-[#0a0a0a] relative overflow-hidden">
+    <section id="formation" className="py-24 md:py-32 px-4 bg-[#F0EBE1] relative overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,168,76,0.05),transparent_65%)] pointer-events-none" />
 
@@ -170,20 +170,20 @@ export default function OffreFormation() {
           </motion.div>
           <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl font-bold text-white mb-4"
+            className="text-3xl md:text-5xl font-bold text-[#1A1205] mb-4"
             style={{ fontFamily: "var(--font-playfair)" }}>
             Lance ton agence avec la{" "}
             <span className="text-gold-gradient italic">méthode qui a fait ses preuves</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-white/50 text-base md:text-lg max-w-xl mx-auto mb-10"
+            className="text-[#2D2416] text-base md:text-lg max-w-xl mx-auto mb-10"
             style={{ fontFamily: "var(--font-inter)" }}>
             Choisis la formule qui correspond à ton niveau d&apos;ambition
           </motion.p>
           <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="text-white/30 text-sm mb-4"
+            className="text-[#2D2416] text-sm mb-4"
             style={{ fontFamily: "var(--font-inter)" }}>
             Places limitées — Le prix augmente à la fermeture de ce timer.
           </motion.p>
@@ -193,8 +193,8 @@ export default function OffreFormation() {
             transition={{ delay: 0.3 }}
             className="inline-flex flex-col items-center gap-3 mb-10">
             <div className="flex items-center gap-2">
-              <Clock size={12} className="text-red-400/70" />
-              <span className="text-red-400/70 text-xs uppercase tracking-widest" style={{ fontFamily: "var(--font-inter)" }}>
+              <Clock size={12} className="text-[#C9A84C]/70" />
+              <span className="text-[#C9A84C]/70 text-xs uppercase tracking-widest" style={{ fontFamily: "var(--font-inter)" }}>
                 Offre expire dans
               </span>
             </div>
@@ -211,20 +211,20 @@ export default function OffreFormation() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="group bg-[#0d0d0d] border border-white/10 p-8 relative hover:-translate-y-1 transition-transform duration-300 flex flex-col overflow-hidden"
+            className="group bg-[#FFFFFF] border border-[#C9A84C]/40 p-8 relative hover:-translate-y-1 transition-transform duration-300 flex flex-col overflow-hidden"
           >
-            <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+            <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
 
             <div className="inline-flex mb-6">
-              <span className="text-[9px] font-bold tracking-widest uppercase bg-white/10 text-white/70 px-3 py-1.5" style={{ fontFamily: "var(--font-inter)" }}>
+              <span className="text-[9px] font-bold tracking-widest uppercase bg-[#C9A84C]/8 text-[#2D2416] px-3 py-1.5" style={{ fontFamily: "var(--font-inter)" }}>
                 Le plus populaire
               </span>
             </div>
 
-            <h3 className="text-2xl font-bold text-white mb-1" style={{ fontFamily: "var(--font-playfair)" }}>
+            <h3 className="text-2xl font-bold text-[#1A1205] mb-1" style={{ fontFamily: "var(--font-playfair)" }}>
               Formation Complète
             </h3>
-            <p className="text-white/30 text-xs mb-6" style={{ fontFamily: "var(--font-inter)" }}>
+            <p className="text-[#2D2416] text-xs mb-6" style={{ fontFamily: "var(--font-inter)" }}>
               Formation autonome — à ton rythme
             </p>
 
@@ -232,17 +232,17 @@ export default function OffreFormation() {
               {offreFormation.map(item => (
                 <li key={item} className="flex items-start gap-2.5">
                   <CheckCircle size={13} className="text-gold flex-shrink-0 mt-0.5" />
-                  <span className="text-white/60 text-sm" style={{ fontFamily: "var(--font-inter)" }}>{item}</span>
+                  <span className="text-[#2D2416] text-sm" style={{ fontFamily: "var(--font-inter)" }}>{item}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="border-t border-white/8 pt-6 mb-6">
+            <div className="border-t border-[#C9A84C]/40 pt-6 mb-6">
               <div className="flex items-end gap-3">
-                <span className="text-white/25 text-base line-through" style={{ fontFamily: "var(--font-inter)" }}>1 490 €</span>
-                <span className="text-white text-3xl font-bold" style={{ fontFamily: "var(--font-playfair)" }}>990 €</span>
+                <span className="text-[#6B5C3E] text-base line-through" style={{ fontFamily: "var(--font-inter)" }}>1 490 €</span>
+                <span className="text-[#1A1205] text-3xl font-bold" style={{ fontFamily: "var(--font-playfair)" }}>990 €</span>
               </div>
-              <p className="text-white/25 text-xs mt-1" style={{ fontFamily: "var(--font-inter)" }}>Paiement unique · Accès à vie</p>
+              <p className="text-[#6B5C3E] text-xs mt-1" style={{ fontFamily: "var(--font-inter)" }}>Paiement unique · Accès à vie</p>
             </div>
 
             <a href="#contact" className="btn-primary justify-center py-4">
@@ -256,29 +256,28 @@ export default function OffreFormation() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="group bg-[#0d0700] border border-gold/30 p-8 relative hover:-translate-y-1 transition-transform duration-300 flex flex-col shadow-[0_0_50px_rgba(201,168,76,0.08)] overflow-hidden"
+            className="group border-2 border-[#C9A84C] p-8 relative hover:-translate-y-1 transition-transform duration-300 flex flex-col overflow-hidden"
+            style={{ background: "linear-gradient(135deg, #FAF7F2 0%, #F0E6C8 50%, #E8D5A3 100%)", boxShadow: "0 8px 40px rgba(201,168,76,0.25)" }}
           >
             <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(201,168,76,0.06),transparent_60%)]" />
 
             <div className="inline-flex mb-6 relative">
-              <motion.span
-                animate={{ opacity: [1, 0.7, 1] }}
-                transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                className="text-[9px] font-bold tracking-widest uppercase bg-gold/15 text-gold border border-gold/30 px-3 py-1.5"
-                style={{ fontFamily: "var(--font-inter)" }}
+              <span
+                className="text-[9px] font-bold tracking-widest uppercase text-[#FAF7F2] px-3 py-1.5"
+                style={{ fontFamily: "var(--font-inter)", background: "#C9A84C" }}
               >
                 ⚡ Pour aller plus vite
-              </motion.span>
+              </span>
             </div>
 
-            <h3 className="text-2xl font-bold text-white mb-1 relative" style={{ fontFamily: "var(--font-playfair)" }}>
+            <h3 className="text-2xl font-bold text-[#1A1205] mb-1 relative" style={{ fontFamily: "var(--font-playfair)" }}>
               Tu veux faire exploser ton agence ?
             </h3>
             <p className="text-gold/70 text-xs mb-4 relative" style={{ fontFamily: "var(--font-inter)" }}>
               Accompagnement personnalisé avec Jessy
             </p>
-            <p className="text-white/40 text-sm leading-relaxed mb-6 relative" style={{ fontFamily: "var(--font-inter)" }}>
+            <p className="text-[#2D2416] text-sm leading-relaxed mb-6 relative" style={{ fontFamily: "var(--font-inter)" }}>
               Pour ceux qui veulent des résultats bien plus rapides. Jessy travaille directement avec toi : stratégie, acquisition clients, gestion du parc.{" "}
               <span className="text-gold/70 font-medium">Limité à quelques personnes par mois.</span>
             </p>
@@ -287,7 +286,7 @@ export default function OffreFormation() {
               {offreAccompagnement.map(item => (
                 <li key={item} className="flex items-start gap-2.5">
                   <CheckCircle size={13} className="text-gold flex-shrink-0 mt-0.5" />
-                  <span className="text-white/60 text-sm" style={{ fontFamily: "var(--font-inter)" }}>{item}</span>
+                  <span className="text-[#2D2416] text-sm" style={{ fontFamily: "var(--font-inter)" }}>{item}</span>
                 </li>
               ))}
             </ul>
@@ -296,11 +295,12 @@ export default function OffreFormation() {
 
             <button
               onClick={() => setContactOpen(true)}
-              className="btn-primary justify-center py-4 relative shadow-[0_4px_30px_rgba(201,168,76,0.25)]"
+              className="justify-center py-4 relative text-[#FAF7F2] text-xs font-bold tracking-widest uppercase flex items-center transition-opacity hover:opacity-90"
+              style={{ background: "linear-gradient(135deg, #C9A84C, #8B6914)", boxShadow: "0 4px 15px rgba(201,168,76,0.4)", fontFamily: "var(--font-inter)" }}
             >
               Réserver un appel →
             </button>
-            <p className="text-center text-xs text-white/40 italic mt-3" style={{ fontFamily: "var(--font-inter)" }}>
+            <p className="text-center text-xs text-[#2D2416] italic mt-3" style={{ fontFamily: "var(--font-inter)" }}>
               (Gratuit &amp; sans engagement)
             </p>
           </motion.div>
@@ -311,14 +311,14 @@ export default function OffreFormation() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="text-white/20 text-xs text-center mt-8 max-w-lg mx-auto"
+          className="text-[#6B5C3E] text-xs text-center mt-8 max-w-lg mx-auto"
           style={{ fontFamily: "var(--font-inter)" }}
         >
           Les résultats présentés sont des exemples et ne constituent pas une garantie de gains. Les performances varient selon l&apos;implication de chacun.
         </motion.p>
       </div>
 
-      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/10 to-transparent" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/25 to-transparent" />
 
       <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
     </section>

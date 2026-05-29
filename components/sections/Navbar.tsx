@@ -7,7 +7,6 @@ import { Menu, X } from "lucide-react";
 
 const links = [
   { label: "Accueil", href: "#" },
-  { label: "LLD Pro", href: "#lld" },
   { label: "Événements", href: "#evenements" },
   { label: "Programme", href: "#programme" },
   { label: "Témoignages", href: "#temoignages" },
@@ -25,7 +24,7 @@ function Logo() {
         First Class
       </span>
       <span
-        className="text-[9px] tracking-[0.35em] uppercase text-white/40"
+        className="text-[9px] tracking-[0.35em] uppercase text-[#2D2416]"
         style={{ fontFamily: "var(--font-inter)" }}
       >
         Location · Formation
@@ -52,10 +51,8 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-[#0a0a0a]/95 backdrop-blur-md border-b border-white/5 py-3"
-            : "bg-transparent py-5"
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 bg-[#FAF7F2] border-b border-[#D4C5A9] ${
+          scrolled ? "shadow-md py-3" : "py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -67,7 +64,7 @@ export default function Navbar() {
                 <a
                   key={l.href}
                   href={l.href}
-                  className="text-[10px] font-medium tracking-widest uppercase text-white/50 hover:text-white transition-colors duration-200"
+                  className="text-[10px] font-medium tracking-widest uppercase text-[#2D2416] hover:text-[#C9A84C] transition-colors duration-200"
                   style={{ fontFamily: "var(--font-inter)" }}
                 >
                   {l.label}
@@ -82,7 +79,7 @@ export default function Navbar() {
           {/* Mobile layout */}
           <div className="lg:hidden flex items-center justify-between">
             <button
-              className="w-10 text-white/70 hover:text-white transition-colors p-1"
+              className="w-10 text-[#2D2416] hover:text-[#C9A84C] transition-colors p-1"
               onClick={() => setOpen(!open)}
               aria-label="Menu"
             >
@@ -102,7 +99,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[60] bg-[#0a0a0a] flex flex-col lg:hidden"
+            className="fixed inset-0 z-[60] bg-[#FAF7F2] flex flex-col lg:hidden"
           >
             {/* Gold top line */}
             <div className="h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
@@ -113,7 +110,7 @@ export default function Navbar() {
               <Logo />
               <button
                 onClick={() => setOpen(false)}
-                className="w-10 flex justify-end text-white/50 hover:text-white transition-colors"
+                className="w-10 flex justify-end text-[#2D2416] hover:text-[#C9A84C] transition-colors"
                 aria-label="Fermer"
               >
                 <X size={22} />
@@ -121,7 +118,7 @@ export default function Navbar() {
             </div>
 
             {/* Divider */}
-            <div className="h-px bg-white/5 mx-5" />
+            <div className="h-px bg-[#D4C5A9]/30 mx-5" />
 
             {/* Links */}
             <nav className="flex-1 flex flex-col justify-center px-5 py-8 gap-1">
@@ -133,7 +130,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.04, duration: 0.25 }}
                   onClick={() => setOpen(false)}
-                  className="text-sm tracking-widest uppercase text-white/50 hover:text-white py-4 border-b border-white/5 transition-colors flex items-center justify-between group"
+                  className="text-sm tracking-widest uppercase text-[#2D2416] hover:text-[#C9A84C] py-4 border-b border-[#C9A84C]/40 transition-colors flex items-center justify-between group"
                   style={{ fontFamily: "var(--font-inter)" }}
                 >
                   {l.label}

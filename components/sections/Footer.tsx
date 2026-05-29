@@ -4,7 +4,6 @@ import { Instagram, Facebook, Youtube, Phone, MapPin } from "lucide-react";
 const locationLinks = [
   { label: "Notre flotte", href: "#location" },
   { label: "Réserver un véhicule", href: "#location" },
-  { label: "LLD Professionnel", href: "#lld" },
   { label: "Événements", href: "#evenements" },
 ];
 
@@ -17,7 +16,7 @@ const formationLinks = [
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-[#080808] border-t border-white/5 pt-16 pb-10 px-4">
+    <footer id="contact" className="bg-[#1A1205] border-t border-[#C9A84C] pt-16 pb-10 px-4">
       <div className="max-w-6xl mx-auto">
 
         {/* Main grid */}
@@ -33,7 +32,7 @@ export default function Footer() {
                 First Class
               </span>
               <span
-                className="text-[9px] tracking-[0.35em] uppercase text-white/30 mt-1"
+                className="text-[9px] tracking-[0.35em] uppercase text-[#E8D5A3]/60 mt-1"
                 style={{ fontFamily: "var(--font-inter)" }}
               >
                 Location · Formation
@@ -41,7 +40,7 @@ export default function Footer() {
             </div>
 
             <p
-              className="text-white/30 text-xs leading-relaxed mb-5"
+              className="text-[#F5F0E8]/70 text-xs leading-relaxed mb-5"
               style={{ fontFamily: "var(--font-inter)" }}
             >
               Agence de location de voitures de luxe — référence N°1 dans la métropole lilloise depuis plus de 15 ans.
@@ -50,19 +49,19 @@ export default function Footer() {
             {/* Contact infos */}
             <div className="space-y-2.5">
               <div className="flex items-center gap-2.5">
-                <MapPin size={12} className="text-gold/60 flex-shrink-0" />
+                <MapPin size={12} className="text-[#C9A84C] flex-shrink-0" />
                 <span
-                  className="text-white/30 text-xs"
+                  className="text-[#F5F0E8]/70 text-xs"
                   style={{ fontFamily: "var(--font-inter)" }}
                 >
                   Lille, Nord-Pas-de-Calais
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Phone size={12} className="text-gold/60 flex-shrink-0" />
+                <Phone size={12} className="text-[#C9A84C] flex-shrink-0" />
                 <a
                   href="tel:0622543084"
-                  className="text-white/30 text-xs hover:text-gold/70 transition-colors"
+                  className="text-[#F5F0E8]/70 text-xs hover:text-[#C9A84C] transition-colors"
                   style={{ fontFamily: "var(--font-inter)" }}
                 >
                   06 22 54 30 84
@@ -83,7 +82,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-8 h-8 border border-white/10 flex items-center justify-center text-white/30 hover:text-gold hover:border-gold/40 transition-all duration-200"
+                  className="w-8 h-8 border border-[#C9A84C]/30 flex items-center justify-center text-[#E8D5A3]/60 hover:text-[#C9A84C] hover:border-[#C9A84C] transition-all duration-200"
                 >
                   <Icon size={14} />
                 </a>
@@ -97,7 +96,7 @@ export default function Footer() {
           {/* Location links */}
           <div>
             <p
-              className="label mb-5 text-white/50"
+              className="label mb-5 text-[#C9A84C]"
               style={{ fontFamily: "var(--font-inter)" }}
             >
               Location
@@ -107,7 +106,7 @@ export default function Footer() {
                 <li key={l.label}>
                   <a
                     href={l.href}
-                    className="text-white/30 text-xs hover:text-white/60 transition-colors"
+                    className="text-[#E8D5A3]/70 text-xs hover:text-[#C9A84C] transition-colors"
                     style={{ fontFamily: "var(--font-inter)" }}
                   >
                     {l.label}
@@ -120,7 +119,7 @@ export default function Footer() {
           {/* Formation links */}
           <div>
             <p
-              className="label mb-5 text-white/50"
+              className="label mb-5 text-[#C9A84C]"
               style={{ fontFamily: "var(--font-inter)" }}
             >
               Formation
@@ -130,7 +129,7 @@ export default function Footer() {
                 <li key={l.label}>
                   <a
                     href={l.href}
-                    className="text-white/30 text-xs hover:text-white/60 transition-colors"
+                    className="text-[#E8D5A3]/70 text-xs hover:text-[#C9A84C] transition-colors"
                     style={{ fontFamily: "var(--font-inter)" }}
                   >
                     {l.label}
@@ -142,31 +141,31 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-white/8 to-transparent mb-8" />
+        <div className="h-px bg-gradient-to-r from-transparent via-[#C9A84C]/30 to-transparent mb-8" />
 
         {/* Bottom row */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-white/20 text-xs" style={{ fontFamily: "var(--font-inter)" }}>
+          <p className="text-[#E8D5A3]/50 text-xs" style={{ fontFamily: "var(--font-inter)" }}>
             © 2025 First Class Location — Basée à Lille, Nord-Pas-de-Calais
           </p>
           <div className="flex gap-5">
             <Link
               href="/mentions-legales"
-              className="text-white/20 text-xs hover:text-gold/70 transition-colors"
+              className="text-[#E8D5A3]/50 text-xs hover:text-[#C9A84C] transition-colors"
               style={{ fontFamily: "var(--font-inter)" }}
             >
               Mentions légales
             </Link>
             <Link
               href="/cgv"
-              className="text-white/20 text-xs hover:text-gold/70 transition-colors"
+              className="text-[#E8D5A3]/50 text-xs hover:text-[#C9A84C] transition-colors"
               style={{ fontFamily: "var(--font-inter)" }}
             >
               CGV
             </Link>
             <Link
               href="/confidentialite"
-              className="text-white/20 text-xs hover:text-gold/70 transition-colors"
+              className="text-[#E8D5A3]/50 text-xs hover:text-[#C9A84C] transition-colors"
               style={{ fontFamily: "var(--font-inter)" }}
             >
               Confidentialité
@@ -176,7 +175,7 @@ export default function Footer() {
 
         {/* Disclaimer */}
         <p
-          className="text-white/[0.12] text-[10px] text-center mt-8 max-w-2xl mx-auto leading-relaxed"
+          className="text-[#E8D5A3]/30 text-[10px] text-center mt-8 max-w-2xl mx-auto leading-relaxed"
           style={{ fontFamily: "var(--font-inter)" }}
         >
           Les résultats présentés sont des exemples de réussite et ne constituent pas une garantie de gains. Les performances varient selon les individus et leur implication dans la formation.
