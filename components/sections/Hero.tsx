@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Play } from "lucide-react";
 import Image from "next/image";
 
 const particles = [
@@ -123,7 +122,7 @@ export default function Hero() {
           className="text-lg text-white/70 max-w-xl mx-auto mb-6 leading-relaxed"
           style={{ fontFamily: "var(--font-inter)" }}
         >
-          15 ans d&apos;expérience · Agence lancée en 60 jours
+          15 ans d&apos;expérience dans le secteur
         </motion.p>
 
         {/* 4. CTA — padding 16px 32px, mb 32px */}
@@ -142,36 +141,17 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ delay: 1.2, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="relative w-full max-w-[780px] mx-auto overflow-hidden border border-gold/20"
-          style={{ height: 440, borderRadius: 12 }}
+          style={{ aspectRatio: "16/9", borderRadius: 12 }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1a1200] via-[#1a1a1a] to-[#111111]" />
-          <div
-            className="absolute inset-0 opacity-[0.03]"
-            style={{
-              backgroundImage: "linear-gradient(rgba(255,255,255,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.1) 1px,transparent 1px)",
-              backgroundSize: "40px 40px",
-            }}
+          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent z-10" />
+          <iframe
+            src="https://www.youtube.com/embed/8ejjlmlaAMU?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1"
+            title="First Class Location — Vidéo de présentation"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowFullScreen
+            className="absolute inset-0 w-full h-full"
+            style={{ border: "none" }}
           />
-          {/* Glow or en haut */}
-          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
-          <div className="absolute top-5 left-5 right-5 flex items-center justify-between">
-            <span className="label text-white/30">Vidéo de présentation</span>
-            <span className="label text-white/20">First Class Location</span>
-          </div>
-          <button className="absolute inset-0 flex items-center justify-center group animate-pulse-gold" aria-label="Regarder la vidéo">
-            <div className="relative">
-              <div className="absolute inset-0 rounded-full bg-gold/20 scale-150 animate-ping" style={{ animationDuration: "2s" }} />
-              <div className="absolute inset-0 rounded-full bg-gold/10 scale-125" />
-              <div className="relative w-20 h-20 rounded-full bg-gold flex items-center justify-center shadow-[0_0_50px_rgba(201,168,76,0.5)] group-hover:scale-110 group-hover:shadow-[0_0_80px_rgba(201,168,76,0.7)] transition-all duration-300">
-                <Play size={28} fill="black" className="text-black ml-1" />
-              </div>
-            </div>
-          </button>
-          <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-5">
-            <p className="text-white/30 text-xs text-center" style={{ fontFamily: "var(--font-inter)" }}>
-              Clique pour regarder la présentation complète
-            </p>
-          </div>
         </motion.div>
 
       </div>

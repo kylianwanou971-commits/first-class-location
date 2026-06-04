@@ -2,73 +2,105 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, CheckCircle } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
-const modules = [
+const chapitres = [
   {
     number: "01",
-    title: "Les bases de la location de luxe",
-    duration: "4 heures de contenu",
-    points: [
-      "Comprendre le marché et ses opportunités",
-      "Choisir sa niche et ses premiers véhicules",
-      "Réglementation, assurances et cadre légal",
-      "Créer sa structure juridique (SASU, SAS, SARL)",
+    title: "Les fondamentaux",
+    modules: [
+      "Comprendre le marché de la location de luxe",
+      "Différence entre location classique et location de luxe",
+      "Les types de prestations",
+      "Les types de véhicules",
+      "Le rôle du loueur",
+      "Positionnement sur le marché",
+      "Pourquoi c'est un secteur d'avenir",
     ],
-    outcome: "Tu sors de ce module avec ton business plan prêt.",
   },
   {
     number: "02",
-    title: "Trouver et convertir tes premiers clients",
-    duration: "5 heures de contenu",
-    points: [
-      "Stratégie Instagram & réseaux sociaux",
-      "Créer une offre irrésistible dès le départ",
-      "Partenariats locaux et bouche-à-oreille",
-      "Gérer les demandes et les réservations",
+    title: "Étude de marché et positionnement",
+    modules: [
+      "Étudier sa zone de chalandise",
+      "Analyser la concurrence et les prix",
+      "Identifier ses personas clients",
+      "Évaluer la demande et les opportunités locales",
+      "Identifier ses atouts et sa différenciation",
+      "Construire son positionnement",
     ],
-    outcome: "Tu sors de ce module avec tes 3 premiers clients potentiels.",
   },
   {
     number: "03",
-    title: "Gérer ton parc automobile",
-    duration: "3 heures de contenu",
-    points: [
-      "Trouver et négocier l'acquisition de véhicules",
-      "LLD, achat comptant vs financement",
-      "Entretien, logistique et gestion quotidienne",
-      "Contrats de location conformes et cautions",
+    title: "Cadre légal, assurances et sécurité",
+    modules: [
+      "Choisir le bon statut juridique",
+      "Les obligations légales et administratives",
+      "Les contrats et conditions de location",
+      "Les vérifications et la sélection des clients",
+      "L'assurance et la gestion des sinistres",
+      "Les risques et les précautions",
     ],
-    outcome: "Tu sors de ce module avec un système de gestion opérationnel.",
   },
   {
     number: "04",
-    title: "Scaler et automatiser ton activité",
-    duration: "4 heures de contenu",
-    points: [
-      "Agrandir sa flotte intelligemment",
-      "Déléguer et recruter",
-      "Automatiser les réservations et la communication",
-      "Diversifier : chauffeur, événementiel, LLD pro",
+    title: "Rentabilité et comptabilité",
+    modules: [
+      "Comprendre ses coûts et ses charges",
+      "Calculer le coût journalier d'un véhicule",
+      "Fixer ses tarifs et ses marges",
+      "Comprendre la TVA et la facturation",
+      "Gérer sa trésorerie et ses paiements",
+      "Mesurer la rentabilité globale",
     ],
-    outcome: "Tu sors de ce module avec un plan de croissance sur 12 mois.",
   },
   {
     number: "05",
-    title: "Community & suivi live",
-    duration: "Accès illimité",
-    points: [
-      "Communauté privée active avec les autres membres",
-      "Sessions live mensuelles avec Jessy",
-      "Accès aux mises à jour et nouvelles stratégies",
-      "Support direct pour tes questions spécifiques",
+    title: "Organisation, gestion de flotte et parcours client",
+    modules: [
+      "Outils de gestion et réservations",
+      "Gestion de la flotte et entretien",
+      "Le parcours client complet",
+      "Filtrer les clients dès le premier contact",
+      "Contrats, dossiers et conditions",
+      "Logistique et remise du véhicule",
+      "Gestion des imprévus et des litiges",
     ],
-    outcome: "Tu n'es plus jamais seul dans ton aventure.",
+  },
+  {
+    number: "06",
+    title: "Influence, partenariats et image en ligne",
+    modules: [
+      "Le rôle des influenceurs",
+      "Les partenariats locaux",
+      "Créer du contenu visuel de qualité",
+    ],
+  },
+  {
+    number: "07",
+    title: "Image de marque et expérience client",
+    modules: [
+      "Construire son identité visuelle",
+      "L'importance de l'environnement et de l'accueil",
+      "L'attitude du loueur et le discours commercial",
+    ],
+  },
+  {
+    number: "08",
+    title: "Communication et marketing",
+    modules: [
+      "L'importance de la communication dans la location de luxe",
+      "Les réseaux à utiliser et leurs objectifs",
+      "La régularité et la planification",
+      "Collaborations, influence et jeux concours",
+      "Suivre ses performances et ajuster sa stratégie",
+      "Le marketing stratégique et événementiel",
+    ],
   },
 ];
 
-function ModuleItem({ mod, index, isOpen, onToggle }: {
-  mod: typeof modules[0];
+function ChapitreItem({ chap, index, isOpen, onToggle }: {
+  chap: typeof chapitres[0];
   index: number;
   isOpen: boolean;
   onToggle: () => void;
@@ -78,7 +110,7 @@ function ModuleItem({ mod, index, isOpen, onToggle }: {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.08 }}
+      transition={{ delay: index * 0.06 }}
       className={`border-b border-[#D4C5A9] last:border-b-0 ${isOpen ? "bg-[#FFFFFF]" : "bg-transparent"} transition-colors`}
     >
       <button
@@ -90,19 +122,19 @@ function ModuleItem({ mod, index, isOpen, onToggle }: {
           className={`text-2xl font-bold flex-shrink-0 transition-colors ${isOpen ? "text-gold" : "text-[#C9A84C]/50"}`}
           style={{ fontFamily: "var(--font-playfair)" }}
         >
-          {mod.number}
+          {chap.number}
         </span>
 
-        {/* Title + duration */}
+        {/* Title */}
         <div className="flex-1 min-w-0">
           <p
             className={`text-sm md:text-base font-semibold transition-colors ${isOpen ? "text-[#1A1205]" : "text-[#2D2416] group-hover:text-[#1A1205]"}`}
             style={{ fontFamily: "var(--font-inter)" }}
           >
-            {mod.title}
+            {chap.title}
           </p>
           <p className="text-xs text-[#6B5C3E] mt-0.5" style={{ fontFamily: "var(--font-inter)" }}>
-            {mod.duration}
+            {chap.modules.length} module{chap.modules.length > 1 ? "s" : ""}
           </p>
         </div>
 
@@ -127,21 +159,20 @@ function ModuleItem({ mod, index, isOpen, onToggle }: {
             className="overflow-hidden"
           >
             <div className="px-6 pb-7 pl-[60px]">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-5">
-                {mod.points.map((pt) => (
-                  <div key={pt} className="flex items-start gap-2.5">
-                    <CheckCircle size={13} className="text-gold flex-shrink-0 mt-0.5" />
+              <div className="flex flex-col gap-2">
+                {chap.modules.map((mod, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span
+                      className="text-gold font-bold text-xs flex-shrink-0 mt-0.5 w-4 text-right"
+                      style={{ fontFamily: "var(--font-inter)" }}
+                    >
+                      {i + 1}.
+                    </span>
                     <span className="text-[#2D2416] text-sm" style={{ fontFamily: "var(--font-inter)" }}>
-                      {pt}
+                      {mod}
                     </span>
                   </div>
                 ))}
-              </div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold/8 border border-[#C9A84C]/40 rounded-sm">
-                <span className="text-gold text-xs" style={{ fontFamily: "var(--font-inter)" }}>🎯</span>
-                <span className="text-gold/80 text-xs font-medium" style={{ fontFamily: "var(--font-inter)" }}>
-                  {mod.outcome}
-                </span>
               </div>
             </div>
           </motion.div>
@@ -175,7 +206,7 @@ export default function Programme() {
             className="text-3xl md:text-5xl font-bold text-[#1A1205] mb-4"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
-            5 modules pour{" "}
+            8 chapitres pour{" "}
             <span className="text-gold-gradient italic">tout maîtriser</span>
           </motion.h2>
           <motion.p
@@ -197,10 +228,10 @@ export default function Programme() {
           viewport={{ once: true }}
           className="border border-[#D4C5A9] rounded-sm overflow-hidden"
         >
-          {modules.map((mod, i) => (
-            <ModuleItem
-              key={mod.number}
-              mod={mod}
+          {chapitres.map((chap, i) => (
+            <ChapitreItem
+              key={chap.number}
+              chap={chap}
               index={i}
               isOpen={openIndex === i}
               onToggle={() => setOpenIndex(openIndex === i ? null : i)}
@@ -216,7 +247,7 @@ export default function Programme() {
           className="text-center mt-10"
         >
           <a href="#formation" className="btn-primary">
-            Accéder à ces 5 modules maintenant
+            Accéder à ces 8 chapitres maintenant
           </a>
           <p className="text-[#6B5C3E] text-xs mt-3" style={{ fontFamily: "var(--font-inter)" }}>
             Accès immédiat · Paiement sécurisé

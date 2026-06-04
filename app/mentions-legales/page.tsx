@@ -44,10 +44,8 @@ export default function MentionsLegales() {
             <p className={`${labelCls} mb-4`}>Intervenants</p>
             <ul className="space-y-2">
               <li className={liCls}><span className="text-white/30">Propriétaire :</span> <span className="text-white/70">FIRST CLASS – 82416608600010 – 12 RUE DE CALAIS 59200 TOURCOING</span></li>
-              <li className={liCls}><span className="text-white/30">Créateur :</span> <span className="text-white/70">Web-Maniac</span></li>
-              <li className={liCls}><span className="text-white/30">Responsable publication :</span> <span className="text-white/70">web-maniac – agence@web-maniac.com</span></li>
-              <li className={liCls}><span className="text-white/30">Webmaster :</span> <span className="text-white/70">Llbaze Aymane – agence@web-maniac.com</span></li>
-              <li className={liCls}><span className="text-white/30">Hébergeur :</span> <span className="text-white/70">Web-Maniac – 2 Rue Kellermann, 59100 Roubaix</span></li>
+              <li className={liCls}><span className="text-white/30">Responsable publication :</span> <span className="text-white/70">First Class – FCRlocation@gmail.com</span></li>
+              <li className={liCls}><span className="text-white/30">Hébergeur :</span> <span className="text-white/70">Vercel Inc</span></li>
             </ul>
           </div>
 
@@ -58,11 +56,9 @@ export default function MentionsLegales() {
           </p>
           <p className={pCls}>
             Propriétaire : FIRST CLASS – 82416608600010 – 12 RUE DE CALAIS 59200 TOURCOING<br />
-            Créateur : Web-Maniac<br />
-            Responsable publication : web-maniac – agence@web-maniac.com<br />
+            Responsable publication : First Class – FCRlocation@gmail.com<br />
             Le responsable publication est une personne physique ou une personne morale.<br />
-            Webmaster : Llbaze Aymane – agence@web-maniac.com<br />
-            Hébergeur : Web-Maniac – 2 Rue Kellermann, 59100 Roubaix<br />
+            Hébergeur : Vercel Inc<br />
             Crédits : Le modèle de mentions légales est offert par Subdelirium.com Générateur de mentions légales
           </p>
 
@@ -75,7 +71,7 @@ export default function MentionsLegales() {
             Ce site est normalement accessible à tout moment aux utilisateurs. Une interruption pour raison de maintenance technique peut être toutefois décidée par FIRST CLASS, qui s&apos;efforcera alors de communiquer préalablement aux utilisateurs les dates et heures de l&apos;intervention.
           </p>
           <p className={pCls}>
-            Le site https://firstclass-location.com est mis à jour régulièrement par web-maniac. De la même façon, les mentions légales peuvent être modifiées à tout moment : elles s&apos;imposent néanmoins à l&apos;utilisateur qui est invité à s&apos;y référer le plus souvent possible afin d&apos;en prendre connaissance.
+            Le site https://firstclass-location.com est mis à jour régulièrement par FIRST CLASS. De la même façon, les mentions légales peuvent être modifiées à tout moment : elles s&apos;imposent néanmoins à l&apos;utilisateur qui est invité à s&apos;y référer le plus souvent possible afin d&apos;en prendre connaissance.
           </p>
 
           {/* Article 3 */}

@@ -6,28 +6,32 @@ import { Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
-    q: "Est-ce que cette formation est adaptée aux débutants complets ?",
-    a: "Oui, absolument. La formation est construite de A à Z pour quelqu'un qui part de zéro — aucune expérience dans la location, l'automobile ou le business n'est requise. On commence par les fondamentaux et on monte progressivement en niveau.",
+    q: "Qu'est-ce qui m'attend dans la formation ?",
+    a: "La formation est disponible entièrement en ligne. Tu découvriras l'ensemble du business de A à Z grâce à un programme structuré avec l'intervention de plusieurs experts. Des cas pratiques sont prévus pour renforcer ton apprentissage. À l'issue de la formation, tu repartiras avec ton site internet, tes supports graphiques, ainsi qu'un véhicule pour démarrer ton activité.",
   },
   {
-    q: "Combien de temps faut-il pour voir des résultats concrets ?",
-    a: "Les premiers résultats dépendent de ton implication, mais la plupart de nos élèves trouvent leurs premiers clients dans les 30 à 90 jours suivant le début de la formation. Certains ont leur premier véhicule loué dès la troisième semaine.",
+    q: "Qui peut suivre la formation ?",
+    a: "Toute personne souhaitant se lancer dans la location de voitures de luxe peut suivre cette formation. Que tu sois entrepreneur, salarié en reconversion ou passionné d'automobile, la formation est accessible sans prérequis particuliers. Elle s'adresse aussi bien aux débutants qu'aux professionnels souhaitant structurer leur activité.",
   },
   {
-    q: "Faut-il un gros budget pour démarrer une agence de location de luxe ?",
-    a: "Non — c'est l'un des secrets que la formation révèle. Il existe des stratégies pour démarrer avec un investissement minimal (LLD, partenariats, sous-location encadrée). On te montre comment minimiser les risques financiers tout en maximisant ta rentabilité.",
+    q: "Faut-il un gros budget pour se lancer ?",
+    a: "Tout dépend de la façon dont tu veux développer ton activité. Tu peux démarrer avec 2 000€ comme avec 15 000€. Acheter ses véhicules, les louer ou opter pour un modèle de conciergerie — tous ces scénarios sont détaillés dans la formation pour t'aider à faire les bons choix.",
   },
   {
-    q: "La formation est-elle accessible sur mobile et à mon propre rythme ?",
-    a: "Oui. Tu accèdes à tous les modules vidéo depuis n'importe quel appareil (téléphone, tablette, ordinateur), 24h/24, 7j/7. Tu avances à ton propre rythme et tu gardes l'accès à vie, y compris toutes les mises à jour futures.",
+    q: "Combien de temps faut-il pour lancer son activité après la formation ?",
+    a: "Tu pourras démarrer dès la création de ta structure et la réception de ton extrait Kbis. Selon le statut juridique choisi, ce processus prend généralement entre 3 et 4 semaines. Une bonne préparation sur ton étude de marché et ta stratégie de communication est essentielle pour poser des bases solides.",
   },
   {
-    q: "Y a-t-il un vrai suivi après la formation ?",
-    a: "Oui. Tu intègres la communauté privée avec tous les autres membres, tu as accès aux sessions live mensuelles avec Jessy, et tu peux poser tes questions à tout moment. Tu n'es jamais seul dans ton aventure.",
+    q: "Quels sont les avantages par rapport aux autres formations ?",
+    a: "Forts de 15 ans d'expérience dans la location de voitures, nous sommes toujours en activité et gérons chaque année une flotte de plus de 20 véhicules. Tu seras formé par des experts reconnus, avec des mises en situation réelles. En plus de la formation, nous prenons en charge la création de tes supports graphiques et te fournissons un véhicule pour démarrer — sans aucun intermédiaire.",
   },
   {
-    q: "Est-ce que je peux obtenir un remboursement si ça ne me convient pas ?",
-    a: "La formation contient des méthodes exclusives testées sur le terrain — nous prenons le risque au sérieux. Les conditions de remboursement sont détaillées dans nos CGV. Contacte-nous directement pour en discuter selon ta situation.",
+    q: "Comment accéder à la formation en ligne ?",
+    a: "La formation en ligne est accessible immédiatement après réception du paiement. Tu pourras y accéder sans délai, depuis n'importe quel appareil, et elle est régulièrement mise à jour pour te garantir un contenu toujours à jour.",
+  },
+  {
+    q: "La formation convient-elle aux débutants complets ?",
+    a: "Oui, absolument. La formation a été conçue pour être accessible sans aucune expérience préalable dans la location de véhicules. Chaque module t'accompagne pas à pas, du choix du statut juridique jusqu'à l'acquisition de tes premiers clients.",
   },
 ];
 

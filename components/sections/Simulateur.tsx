@@ -130,7 +130,7 @@ export default function Simulateur() {
             <GoldSlider
               label="Jours loués par mois"
               value={jours}
-              min={5}
+              min={1}
               max={28}
               step={1}
               onChange={setJours}

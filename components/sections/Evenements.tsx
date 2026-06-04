@@ -205,10 +205,10 @@ export default function Evenements() {
             <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#FAF7F2] to-transparent z-10 pointer-events-none" />
             <div
               className="marquee-strip flex gap-4 w-max"
-              style={{ animation: "marquee 40s linear infinite" }}
+              style={{ animation: "marquee 50s linear infinite" }}
             >
               {[...Array(2)].flatMap(() =>
-                [1, 2, 3, 4, 5, 6].map((n) => n)
+                [1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => n)
               ).map((n, i) => (
                 <div
                   key={i}
@@ -217,7 +217,7 @@ export default function Evenements() {
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={`/events/event${n}.jpg`}
+                    src={`/events/photo${n}.jpeg`}
                     alt={`Événement First Class ${n}`}
                     style={{ width: 400, height: 400, objectFit: "cover", display: "block", borderRadius: 12, border: "1px solid rgba(201,168,76,0.25)" }}
                   />

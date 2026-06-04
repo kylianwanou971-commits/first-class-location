@@ -7,49 +7,13 @@ type BadgeType = "available" | "vip";
 
 const fleet = [
   {
-    name: "Porsche 911 Type 991 Carrera GTS",
+    name: "Porsche 911 Carrera",
     tagline: "Le mythe. La légende.",
     category: "Coupé Sport",
     badge: "Disponible",
     badgeType: "available" as BadgeType,
     vip: false,
-    img: "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=800&q=80",
-  },
-  {
-    name: "Mercedes GLE 63S AMG",
-    tagline: "Puissance et prestance au quotidien.",
-    category: "SUV Sportif",
-    badge: "Disponible",
-    badgeType: "available" as BadgeType,
-    vip: false,
-    img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80",
-  },
-  {
-    name: "Mercedes C63S AMG E-Performance",
-    tagline: "La berline qui ne fait aucun compromis.",
-    category: "Berline Sport",
-    badge: "Disponible",
-    badgeType: "available" as BadgeType,
-    vip: false,
-    img: "https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=800&q=80",
-  },
-  {
-    name: "Audi RS6 Performance",
-    tagline: "Le break qui dévore l'autoroute.",
-    category: "Break Sportif",
-    badge: "Disponible",
-    badgeType: "available" as BadgeType,
-    vip: false,
-    img: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&q=80",
-  },
-  {
-    name: "Mercedes CLE 53 AMG Cabriolet",
-    tagline: "Ciel ouvert, adrénaline garantie.",
-    category: "Cabriolet",
-    badge: "Disponible",
-    badgeType: "available" as BadgeType,
-    vip: false,
-    img: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=800&q=80",
+    img: "/flotte/porsche-911.jpeg",
   },
   {
     name: "BMW M3 Competition",
@@ -58,29 +22,75 @@ const fleet = [
     badge: "Disponible",
     badgeType: "available" as BadgeType,
     vip: false,
-    img: "https://images.unsplash.com/photo-1617654112368-307921291f42?w=800&q=80",
+    img: "/flotte/bmw-m3.jpeg",
   },
   {
-    name: "Audi RSQ8",
-    tagline: "Le SUV sport qui redéfinit le luxe.",
+    name: "Mercedes-AMG C 63 S",
+    tagline: "La berline qui ne fait aucun compromis.",
+    category: "Berline Sport",
+    badge: "Disponible",
+    badgeType: "available" as BadgeType,
+    vip: false,
+    img: "/flotte/mercedes-c63.jpeg",
+    imgPosition: "object-[center_30%]",
+  },
+  {
+    name: "Mercedes-AMG GLC 63 S Coupé",
+    tagline: "L'élégance d'un SUV, la rage d'un AMG.",
     category: "SUV Sport",
     badge: "Disponible",
     badgeType: "available" as BadgeType,
     vip: false,
-    img: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&q=80",
+    img: "/flotte/mercedes-glc63.jpeg",
   },
   {
-    name: "Mercedes CLS AMG avec Chauffeur",
-    tagline: "L'expérience VIP complète.",
-    category: "Berline de Prestige",
+    name: "Mercedes-AMG GT 63 S 4MATIC",
+    tagline: "La gran turismo qui redéfinit les codes.",
+    category: "Berline GT",
+    badge: "Disponible",
+    badgeType: "available" as BadgeType,
+    vip: false,
+    img: "/flotte/mercedes-gt63.jpeg",
+  },
+  {
+    name: "Mercedes-AMG SL 63 4MATIC",
+    tagline: "Ciel ouvert, adrénaline garantie.",
+    category: "Roadster",
+    badge: "Disponible",
+    badgeType: "available" as BadgeType,
+    vip: false,
+    img: "/flotte/mercedes-sl63.jpeg",
+  },
+  {
+    name: "Mercedes-Benz Classe S",
+    tagline: "Le summum du confort et du prestige.",
+    category: "Limousine de Prestige",
     badge: "⭐ Avec chauffeur",
     badgeType: "vip" as BadgeType,
     vip: true,
-    img: "https://images.unsplash.com/photo-1563720223809-b68b6dcfc58e?w=800&q=80",
+    img: "/flotte/mercedes-classe-s.jpeg",
+  },
+  {
+    name: "Brabus 800 (Mercedes-AMG G 63)",
+    tagline: "La bête ultime des routes.",
+    category: "SUV de Prestige",
+    badge: "Disponible",
+    badgeType: "available" as BadgeType,
+    vip: false,
+    img: "/flotte/brabus-800.jpeg",
+  },
+  {
+    name: "Ferrari FF",
+    tagline: "La Ferrari qui s'adapte à toutes les saisons.",
+    category: "GT Sportive",
+    badge: "Disponible",
+    badgeType: "available" as BadgeType,
+    vip: false,
+    img: "/flotte/ferrari-ff.jpeg",
   },
 ];
 
-function CarCard({ car, index }: { car: typeof fleet[0]; index: number }) {
+function CarCard({ car, index }: { car: typeof fleet[0] & { imgPosition?: string }; index: number }) {
   const borderCls = car.vip
     ? "border border-gold/50 hover:border-gold"
     : "border border-white/6 hover:border-gold/35";
@@ -99,7 +109,7 @@ function CarCard({ car, index }: { car: typeof fleet[0]; index: number }) {
           src={car.img}
           alt={car.name}
           fill
-          className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+          className={`object-cover group-hover:scale-105 transition-transform duration-700 ${car.imgPosition ?? "object-center"}`}
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#2C2C2E] via-transparent to-black/20" />
@@ -209,11 +219,23 @@ export default function LocationVoitures() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {fleet.map((car, i) => (
             <CarCard key={car.name} car={car} index={i} />
           ))}
         </div>
+
+        {/* Phrase de fin */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="text-center text-[#2D2416] text-sm md:text-base italic mt-10"
+          style={{ fontFamily: "var(--font-inter)" }}
+        >
+          … et bien d&apos;autres encore, selon vos envies et disponibilités.
+        </motion.p>
       </div>
 
       <div className="absolute bottom-0 inset-x-0">
