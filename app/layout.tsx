@@ -18,26 +18,24 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://firstclasslocation.fr"),
-  title: "First Class Location | Location voitures de luxe Lille + Formation",
+  title: "First Class Formation | La seule formation pour lancer ton agence de location de voitures de luxe",
   description:
-    "Louez une voiture de luxe à Lille avec First Class Location. Mercedes AMG, Porsche, Ferrari disponibles 7j/7. Et découvrez notre formation pour lancer votre propre agence.",
+    "Découvre la formation de Jessy, 15 ans d'expérience dans la location de luxe. Lance ton agence en 60 jours et repars avec un véhicule à la fin. Accessible partout en France.",
   keywords: [
-    "location voiture luxe Lille",
-    "location Mercedes Lille",
-    "location Porsche Lille",
-    "location Ferrari Lille",
-    "agence location voiture luxe Nord",
-    "formation location voiture luxe",
-    "first class location",
-    "location voiture Bondues",
+    "formation agence location voiture luxe",
+    "lancer agence location luxe",
+    "formation location voiture luxe France",
+    "first class formation",
+    "jessy formation location luxe",
+    "formation entrepreneur voiture luxe",
   ],
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    title: "First Class Location | Location voitures de luxe Lille + Formation",
+    title: "First Class Formation | Formation agence location voitures de luxe",
     description:
-      "Louez une voiture de luxe à Lille avec First Class Location. Mercedes AMG, Porsche, Ferrari disponibles 7j/7. Et découvrez notre formation pour lancer votre propre agence.",
-    siteName: "First Class Location",
+      "La seule formation du marché où un véhicule t'attend à la fin. Méthode prouvée, 15 ans d'expérience, accessible partout en France.",
+    siteName: "First Class Formation",
   },
 };
 
