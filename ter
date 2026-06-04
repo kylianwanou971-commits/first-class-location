@@ -1,0 +1,21 @@
+[33mcommit 5b7c965e67a39ab18a762502a5f8fc81b371b24d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Kylian <kylianwanou971@gmail.com>
+Date:   Thu Jun 4 23:23:11 2026 +0200
+
+    optimisation mobile
+
+ app/globals.css                           |   1 [32m+[m
+ app/page.tsx                              |   3 [32m+[m[31m-[m
+ components/sections/CTAMilieu.tsx         |  65 [32m++++++++++++++[m
+ components/sections/ChiffresCles.tsx      |   8 [32m+[m[31m-[m
+ components/sections/Evenements.tsx        |  10 [32m++[m[31m-[m
+ components/sections/FAQ.tsx               |   4 [32m+[m[31m-[m
+ components/sections/Footer.tsx            |  10 [32m+[m[31m--[m
+ components/sections/Hero.tsx              |  29 [32m+++[m[31m---[m
+ components/sections/Navbar.tsx            |   2 [32m+[m[31m-[m
+ components/sections/OffreFormation.tsx    |   8 [32m+[m[31m-[m
+ components/sections/PresentationJessy.tsx |   6 [32m+[m[31m-[m
+ components/sections/Programme.tsx         |   4 [32m+[m[31m-[m
+ components/sections/Simulateur.tsx        | 141 [32m+++++++++++++++[m[31m---------------[m
+ components/sections/Temoignages.tsx       |   7 [32m+[m[31m-[m
+ 14 files changed, 181 insertions(+), 117 deletions(-)
