@@ -70,10 +70,12 @@ function VideoCard({ t, index }: { t: typeof testimonials[0]; index: number }) {
         {t.video ? (
           /* Vraie vidéo */
           <video
-            src={t.video}
+            src={`${t.video}#t=0.1`}
+            poster="/placeholder-video.jpg"
             controls
             playsInline
             preload="metadata"
+            {...{"webkit-playsinline": "true"}}
             style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
           />
         ) : (

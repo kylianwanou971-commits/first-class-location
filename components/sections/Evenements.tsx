@@ -255,10 +255,12 @@ export default function Evenements() {
                   style={{ borderRadius: 4, height: 480, background: "#1a1a1a" }}
                 >
                   <video
-                    src={src}
+                    src={`${src}#t=0.1`}
+                    poster="/placeholder-video.jpg"
                     controls
                     playsInline
                     preload="metadata"
+                    {...{"webkit-playsinline": "true"}}
                     style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                   />
                 </div>
