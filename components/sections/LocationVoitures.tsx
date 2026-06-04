@@ -32,7 +32,7 @@ const fleet = [
     badgeType: "available" as BadgeType,
     vip: false,
     img: "/flotte/mercedes-c63.jpeg",
-    imgPosition: "object-[center_30%]",
+    imgPosition: "object-[center_70%]",
   },
   {
     name: "Mercedes-AMG GLC 63 S Coupé",
@@ -104,7 +104,7 @@ function CarCard({ car, index }: { car: typeof fleet[0] & { imgPosition?: string
       className={`group relative bg-[#FFFFFF] overflow-hidden transition-all duration-400 ${borderCls}`}
     >
       {/* Image */}
-      <div className="relative aspect-[16/9] overflow-hidden bg-[#FFFFFF]">
+      <div className="relative h-[220px] overflow-hidden bg-[#FFFFFF]">
         <Image
           src={car.img}
           alt={car.name}

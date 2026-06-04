@@ -185,7 +185,9 @@ export default function CTAFinale() {
 
           {/* CTA Button */}
           <a
-            href="#contact"
+            href="https://app.iclosed.io/e/Jessy-FCFORMATION/appel-strat-gique-offert-30-min"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-primary w-full justify-center text-sm py-5 shadow-[0_4px_30px_rgba(201,168,76,0.3)]"
           >
             <Zap size={16} fill="black" />

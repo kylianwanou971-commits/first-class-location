@@ -131,7 +131,7 @@ export default function PourquoiFormation() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <a href="#formation" className="btn-primary">
+          <a href="https://app.iclosed.io/e/Jessy-FCFORMATION/appel-strat-gique-offert-30-min" target="_blank" rel="noopener noreferrer" className="btn-primary">
             Résoudre ces blocages maintenant
           </a>
         </motion.div>

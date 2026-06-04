@@ -71,7 +71,7 @@ export default function Navbar() {
                 </a>
               ))}
             </nav>
-            <a href="#formation" className="btn-primary text-xs px-5 py-3">
+            <a href="https://app.iclosed.io/e/Jessy-FCFORMATION/appel-strat-gique-offert-30-min" target="_blank" rel="noopener noreferrer" className="btn-primary text-xs px-5 py-3">
               Devenir loueur
             </a>
           </div>
@@ -142,7 +142,9 @@ export default function Navbar() {
             {/* CTA */}
             <div className="px-5 pb-8">
               <motion.a
-                href="#formation"
+                href="https://app.iclosed.io/e/Jessy-FCFORMATION/appel-strat-gique-offert-30-min"
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.25 }}

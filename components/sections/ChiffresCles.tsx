@@ -123,7 +123,7 @@ export default function ChiffresCles() {
           transition={{ delay: 0.5 }}
           className="text-center mt-12"
         >
-          <a href="#formation" className="btn-primary">
+          <a href="https://app.iclosed.io/e/Jessy-FCFORMATION/appel-strat-gique-offert-30-min" target="_blank" rel="noopener noreferrer" className="btn-primary">
             Je veux les mêmes résultats
           </a>
         </motion.div>

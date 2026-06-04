@@ -246,7 +246,7 @@ export default function Programme() {
           viewport={{ once: true }}
           className="text-center mt-10"
         >
-          <a href="#formation" className="btn-primary">
+          <a href="https://app.iclosed.io/e/Jessy-FCFORMATION/appel-strat-gique-offert-30-min" target="_blank" rel="noopener noreferrer" className="btn-primary">
             Accéder à ces 8 chapitres maintenant
           </a>
           <p className="text-[#6B5C3E] text-xs mt-3" style={{ fontFamily: "var(--font-inter)" }}>

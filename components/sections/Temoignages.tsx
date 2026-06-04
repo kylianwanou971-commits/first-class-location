@@ -6,18 +6,22 @@ import { useRef } from "react";
 
 const testimonials = [
   {
-    name: "Kevin R.",
-    city: "Lyon",
-    result: "3 voitures en 4 mois",
-    detail: "CA mensuel : 6 500 €",
+    name: "Olivier",
+    phrase: "Jessy fournit tout, je n'ai pas eu à chercher de fournisseur. J'ai pu me concentrer sur mes clients.",
+    city: "",
+    result: "",
+    detail: "",
     color: "from-[#1a0f00]",
+    video: "/video-temoignage/temoiagnage1.mp4",
   },
   {
-    name: "Amira B.",
-    city: "Paris",
-    result: "Agence lancée en 6 semaines",
-    detail: "Déjà rentable",
+    name: "Jérôme",
+    phrase: "La formation m'a donné toutes les clés pour me lancer sereinement.",
+    city: "",
+    result: "",
+    detail: "",
     color: "from-[#001a0f]",
+    video: "/video-temoignage/temoiagnage2.mp4",
   },
   {
     name: "Dylan M.",
@@ -60,47 +64,51 @@ function VideoCard({ t, index }: { t: typeof testimonials[0]; index: number }) {
     >
       {/* 9:16 card */}
       <div
-        className="relative bg-[#FFFFFF] border border-[#D4C5A9] rounded-xl overflow-hidden group cursor-pointer hover:border-[#C9A84C]/40 transition-all duration-300"
+        className="relative border border-[#D4C5A9] rounded-xl overflow-hidden group hover:border-[#C9A84C]/40 transition-all duration-300"
         style={{ aspectRatio: "9/16" }}
       >
-        {/* Gradient background */}
-        <div className={`absolute inset-0 bg-gradient-to-b ${t.color} via-[#2C2C2E] to-[#EDE8DE]`} />
-
-        {/* Top stars */}
-        <div className="absolute top-4 left-4 flex gap-0.5">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <Star key={i} size={10} fill="#C9A84C" className="text-gold" />
-          ))}
-        </div>
-
-        {/* Initial circle (fake avatar) */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[65%]">
-          <div className="w-16 h-16 rounded-full bg-gold/10 border-2 border-[#C9A84C]/40 flex items-center justify-center mb-4 mx-auto">
-            <span className="text-gold text-xl font-bold" style={{ fontFamily: "var(--font-playfair)" }}>
-              {t.name[0]}
-            </span>
-          </div>
-        </div>
-
-        {/* Play button */}
-        <div className="absolute inset-0 flex items-center justify-center pt-16">
-          <div className="w-12 h-12 rounded-full bg-[#C9A84C]/8 border border-[#C9A84C]/40 flex items-center justify-center group-hover:bg-gold/20 group-hover:border-[#C9A84C]/40 transition-all duration-300">
-            <Play size={16} fill="white" className="text-[#1A1205] ml-0.5" />
-          </div>
-        </div>
-
-        {/* Bottom overlay */}
-        <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black via-black/80 to-transparent pt-8 pb-4 px-4">
-          <p className="text-gold text-[10px] font-bold uppercase tracking-widest mb-1" style={{ fontFamily: "var(--font-inter)" }}>
-            Témoignage vidéo
-          </p>
-          <p className="text-[#1A1205] text-xs font-semibold leading-tight" style={{ fontFamily: "var(--font-inter)" }}>
-            {t.result}
-          </p>
-          <p className="text-[#2D2416] text-[10px] mt-0.5" style={{ fontFamily: "var(--font-inter)" }}>
-            {t.detail}
-          </p>
-        </div>
+        {t.video ? (
+          /* Vraie vidéo */
+          <video
+            src={t.video}
+            controls
+            playsInline
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          />
+        ) : (
+          /* Placeholder futur témoignage */
+          <>
+            <div className={`absolute inset-0 bg-gradient-to-b ${t.color} via-[#2C2C2E] to-[#EDE8DE]`} />
+            <div className="absolute top-4 left-4 flex gap-0.5">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} size={10} fill="#C9A84C" className="text-gold" />
+              ))}
+            </div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[65%]">
+              <div className="w-16 h-16 rounded-full bg-gold/10 border-2 border-[#C9A84C]/40 flex items-center justify-center mb-4 mx-auto">
+                <span className="text-gold text-xl font-bold" style={{ fontFamily: "var(--font-playfair)" }}>
+                  {t.name[0]}
+                </span>
+              </div>
+            </div>
+            <div className="absolute inset-0 flex items-center justify-center pt-16">
+              <div className="w-12 h-12 rounded-full bg-[#C9A84C]/8 border border-[#C9A84C]/40 flex items-center justify-center group-hover:bg-gold/20 group-hover:border-[#C9A84C]/40 transition-all duration-300">
+                <Play size={16} fill="white" className="text-[#1A1205] ml-0.5" />
+              </div>
+            </div>
+            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black via-black/80 to-transparent pt-8 pb-4 px-4">
+              <p className="text-gold text-[10px] font-bold uppercase tracking-widest mb-1" style={{ fontFamily: "var(--font-inter)" }}>
+                Témoignage vidéo
+              </p>
+              <p className="text-[#1A1205] text-xs font-semibold leading-tight" style={{ fontFamily: "var(--font-inter)" }}>
+                {t.result}
+              </p>
+              <p className="text-[#2D2416] text-[10px] mt-0.5" style={{ fontFamily: "var(--font-inter)" }}>
+                {t.detail}
+              </p>
+            </div>
+          </>
+        )}
       </div>
 
       {/* Below card */}
@@ -108,9 +116,16 @@ function VideoCard({ t, index }: { t: typeof testimonials[0]; index: number }) {
         <p className="text-[#1A1205] text-xs font-semibold" style={{ fontFamily: "var(--font-inter)" }}>
           {t.name}
         </p>
-        <p className="text-[#2D2416] text-[10px]" style={{ fontFamily: "var(--font-inter)" }}>
-          {t.city}
-        </p>
+        {t.phrase && (
+          <p className="text-[#6B5C3E] text-[11px] italic mt-1 leading-relaxed" style={{ fontFamily: "var(--font-inter)" }}>
+            {t.phrase}
+          </p>
+        )}
+        {t.city && (
+          <p className="text-[#2D2416] text-[10px]" style={{ fontFamily: "var(--font-inter)" }}>
+            {t.city}
+          </p>
+        )}
       </div>
     </motion.div>
   );
@@ -179,7 +194,7 @@ export default function Temoignages() {
 
       {/* CTA */}
       <div className="text-center mt-12 px-4">
-        <a href="#formation" className="btn-primary">
+        <a href="https://app.iclosed.io/e/Jessy-FCFORMATION/appel-strat-gique-offert-30-min" target="_blank" rel="noopener noreferrer" className="btn-primary">
           Je veux des résultats similaires
         </a>
       </div>

@@ -237,28 +237,32 @@ export default function Evenements() {
             Nos événements{" "}
             <span className="text-gold-gradient italic">en vidéo</span>
           </motion.h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {["Vidéo événement 1", "Vidéo événement 2", "Vidéo événement 3"].map((title, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+            {[
+              { src: "/videoevent/video1.mp4", label: "Vidéo événement 1" },
+              { src: "/videoevent/video2.mp4", label: "Vidéo événement 2" },
+              { src: "/videoevent/video3.mp4", label: "Vidéo événement 3" },
+            ].map(({ src, label }, i) => (
               <motion.div
-                key={title}
+                key={src}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <div className="relative bg-[#FFFFFF] border border-[#C9A84C]/40 overflow-hidden group cursor-pointer hover:border-gold/50 transition-all duration-300"
-                  style={{ aspectRatio: "16/9" }}>
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-14 h-14 rounded-full bg-[#C9A84C]/8 border border-[#C9A84C]/40 flex items-center justify-center group-hover:bg-gold/20 group-hover:border-[#C9A84C]/40 transition-all duration-300">
-                      <svg width="16" height="18" viewBox="0 0 16 18" fill="white" className="ml-1">
-                        <path d="M0 0L16 9L0 18V0Z" />
-                      </svg>
-                    </div>
-                  </div>
+                <div
+                  className="border border-[#C9A84C]/40 overflow-hidden hover:border-[#C9A84C]/70 transition-colors duration-300"
+                  style={{ borderRadius: 4, height: 480 }}
+                >
+                  <video
+                    src={src}
+                    controls
+                    playsInline
+                    style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                  />
                 </div>
                 <p className="text-[#2D2416] text-sm mt-3 text-center" style={{ fontFamily: "var(--font-inter)" }}>
-                  {title}
+                  {label}
                 </p>
               </motion.div>
             ))}

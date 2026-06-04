@@ -130,7 +130,7 @@ export default function Hero() {
           custom={4} variants={lineVariants} initial="hidden" animate="visible"
           className="flex justify-center mb-8"
         >
-          <a href="#formation" className="btn-primary px-8 py-4">
+          <a href="https://app.iclosed.io/e/Jessy-FCFORMATION/appel-strat-gique-offert-30-min" target="_blank" rel="noopener noreferrer" className="btn-primary px-8 py-4">
             Je veux lancer mon agence
           </a>
         </motion.div>

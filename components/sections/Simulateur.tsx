@@ -243,7 +243,7 @@ export default function Simulateur() {
               </div>
             </div>
 
-            <a href="#formation" className="btn-primary justify-center mt-4">
+            <a href="https://app.iclosed.io/e/Jessy-FCFORMATION/appel-strat-gique-offert-30-min" target="_blank" rel="noopener noreferrer" className="btn-primary justify-center mt-4">
               Je veux atteindre ces chiffres
               <ArrowRight size={14} />
             </a>

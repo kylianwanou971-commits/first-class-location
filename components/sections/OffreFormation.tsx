@@ -245,7 +245,7 @@ export default function OffreFormation() {
               <p className="text-[#6B5C3E] text-xs mt-1" style={{ fontFamily: "var(--font-inter)" }}>Paiement unique · Accès à vie</p>
             </div>
 
-            <a href="#contact" className="btn-primary justify-center py-4">
+            <a href="https://app.iclosed.io/e/Jessy-FCFORMATION/appel-strat-gique-offert-30-min" target="_blank" rel="noopener noreferrer" className="btn-primary justify-center py-4">
               Accéder maintenant — 990 €
             </a>
           </motion.div>
@@ -293,13 +293,15 @@ export default function OffreFormation() {
 
             <div className="border-t border-gold/15 pt-6 mb-6" />
 
-            <button
-              onClick={() => setContactOpen(true)}
+            <a
+              href="https://app.iclosed.io/e/Jessy-FCFORMATION/appel-strat-gique-offert-30-min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="justify-center py-4 relative text-[#FAF7F2] text-xs font-bold tracking-widest uppercase flex items-center transition-opacity hover:opacity-90"
               style={{ background: "linear-gradient(135deg, #C9A84C, #8B6914)", boxShadow: "0 4px 15px rgba(201,168,76,0.4)", fontFamily: "var(--font-inter)" }}
             >
               Réserver un appel →
-            </button>
+            </a>
             <p className="text-center text-xs text-[#2D2416] italic mt-3" style={{ fontFamily: "var(--font-inter)" }}>
               (Gratuit &amp; sans engagement)
             </p>
