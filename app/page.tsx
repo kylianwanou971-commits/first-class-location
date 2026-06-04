@@ -10,6 +10,7 @@ import OffreFormation from "@/components/sections/OffreFormation";
 import PourquoiFormation from "@/components/sections/PourquoiFormation";
 import Programme from "@/components/sections/Programme";
 import Evenements from "@/components/sections/Evenements";
+import CTAMilieu from "@/components/sections/CTAMilieu";
 import FAQ from "@/components/sections/FAQ";
 import Footer from "@/components/sections/Footer";
 
@@ -24,7 +25,7 @@ export default function Page() {
       <Simulateur />
       <LocationVoitures />
       <LogosBandeau />
-      <OffreFormation />
+      <CTAMilieu />
       <PourquoiFormation />
       <Programme />
       <Evenements />

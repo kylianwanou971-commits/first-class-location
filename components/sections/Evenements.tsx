@@ -128,7 +128,7 @@ export default function Evenements() {
   const [modalEvent, setModalEvent] = useState<string | null>(null);
 
   return (
-    <section id="evenements" className="py-24 md:py-32 px-4 bg-[#FAF7F2] relative overflow-hidden">
+    <section id="evenements" className="py-12 md:py-32 px-4 bg-[#FAF7F2] relative overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(201,168,76,0.04),transparent_70%)] pointer-events-none" />
 
@@ -213,13 +213,14 @@ export default function Evenements() {
                 <div
                   key={i}
                   className="flex-shrink-0 transition-transform duration-300 hover:-translate-y-2"
-                  style={{ width: 400, height: 400 }}
+                  className="w-[280px] h-[250px] md:w-[400px] md:h-[400px] flex-shrink-0"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={`/events/photo${n}.jpeg`}
                     alt={`Événement First Class ${n}`}
-                    style={{ width: 400, height: 400, objectFit: "cover", display: "block", borderRadius: 12, border: "1px solid rgba(201,168,76,0.25)" }}
+                    className="w-full h-full"
+                    style={{ objectFit: "cover", display: "block", borderRadius: 12, border: "1px solid rgba(201,168,76,0.25)" }}
                   />
                 </div>
               ))}
@@ -252,12 +253,13 @@ export default function Evenements() {
               >
                 <div
                   className="border border-[#C9A84C]/40 overflow-hidden hover:border-[#C9A84C]/70 transition-colors duration-300"
-                  style={{ borderRadius: 4, height: 480 }}
+                  style={{ borderRadius: 4, height: 480, background: "#1a1a1a" }}
                 >
                   <video
                     src={src}
                     controls
                     playsInline
+                    preload="metadata"
                     style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                   />
                 </div>

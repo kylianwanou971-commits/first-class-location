@@ -100,7 +100,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-24 md:py-32 px-4 bg-[#FAF7F2] relative">
+    <section id="faq" className="py-12 md:py-32 px-4 bg-[#FAF7F2] relative">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
 
       <div className="max-w-3xl mx-auto">
@@ -119,7 +119,7 @@ export default function FAQ() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl font-bold text-[#1A1205]"
+            className="text-2xl md:text-5xl font-bold text-[#1A1205]"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Tu te poses des

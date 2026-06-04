@@ -115,7 +115,7 @@ function ChapitreItem({ chap, index, isOpen, onToggle }: {
     >
       <button
         onClick={onToggle}
-        className="w-full flex items-center gap-5 py-6 px-6 text-left group"
+        className="w-full flex items-center gap-4 py-4 px-4 md:py-6 md:px-6 text-left group"
       >
         {/* Number */}
         <span
@@ -186,7 +186,7 @@ export default function Programme() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="programme" className="py-24 md:py-32 px-4 relative">
+    <section id="programme" className="py-12 md:py-32 px-4 relative">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-14">

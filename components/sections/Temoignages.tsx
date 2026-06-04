@@ -65,7 +65,7 @@ function VideoCard({ t, index }: { t: typeof testimonials[0]; index: number }) {
       {/* 9:16 card */}
       <div
         className="relative border border-[#D4C5A9] rounded-xl overflow-hidden group hover:border-[#C9A84C]/40 transition-all duration-300"
-        style={{ aspectRatio: "9/16" }}
+        style={{ aspectRatio: "9/16", background: "#1a1a1a" }}
       >
         {t.video ? (
           /* Vraie vidéo */
@@ -73,6 +73,7 @@ function VideoCard({ t, index }: { t: typeof testimonials[0]; index: number }) {
             src={t.video}
             controls
             playsInline
+            preload="metadata"
             style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
           />
         ) : (
@@ -135,7 +136,7 @@ export default function Temoignages() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section id="temoignages" className="py-24 md:py-32 bg-[#F0EBE1] relative overflow-hidden">
+    <section id="temoignages" className="py-12 md:py-32 bg-[#F0EBE1] relative overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/15 to-transparent" />
 
       {/* Header */}
@@ -181,7 +182,7 @@ export default function Temoignages() {
         style={{ scrollSnapType: "x mandatory", paddingLeft: "max(16px, calc((100vw - 1152px) / 2))", paddingRight: "max(16px, calc((100vw - 1152px) / 2))" }}
       >
         {testimonials.map((t, i) => (
-          <div key={t.name} style={{ scrollSnapAlign: "start" }}>
+          <div key={t.name} className="w-[75vw] md:w-auto md:min-w-[180px]" style={{ scrollSnapAlign: "start" }}>
             <VideoCard t={t} index={i} />
           </div>
         ))}

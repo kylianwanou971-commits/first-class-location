@@ -42,7 +42,7 @@ function Counter({ value, prefix, suffix }: { value: number; prefix: string; suf
 
 export default function ChiffresCles() {
   return (
-    <section className="py-24 md:py-32 px-4 bg-[#F0EBE1] relative overflow-hidden">
+    <section className="py-12 md:py-32 px-4 bg-[#F0EBE1] relative overflow-hidden">
       {/* BG accent */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,168,76,0.04),transparent_70%)] pointer-events-none" />
 
@@ -64,7 +64,7 @@ export default function ChiffresCles() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl font-bold text-[#1A1205] mb-4"
+            className="text-2xl md:text-5xl font-bold text-[#1A1205] mb-4"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Tu veux toi aussi lancer ta{" "}
@@ -91,7 +91,7 @@ export default function ChiffresCles() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="bg-[#FAF7F2] p-8 md:p-10 flex flex-col items-center text-center group hover:bg-[#FFFFFF] transition-colors"
+              className="bg-[#FAF7F2] p-5 md:p-10 flex flex-col items-center text-center group hover:bg-[#FFFFFF] transition-colors"
             >
               <p
                 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gold-gradient mb-2"
@@ -123,7 +123,7 @@ export default function ChiffresCles() {
           transition={{ delay: 0.5 }}
           className="text-center mt-12"
         >
-          <a href="https://app.iclosed.io/e/Jessy-FCFORMATION/appel-strat-gique-offert-30-min" target="_blank" rel="noopener noreferrer" className="btn-primary">
+          <a href="https://app.iclosed.io/e/Jessy-FCFORMATION/appel-strat-gique-offert-30-min" target="_blank" rel="noopener noreferrer" className="btn-primary w-full md:w-auto justify-center">
             Je veux les mêmes résultats
           </a>
         </motion.div>

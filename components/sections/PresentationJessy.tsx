@@ -12,7 +12,7 @@ const stats = [
 
 export default function PresentationJessy() {
   return (
-    <section className="py-24 md:py-32 px-4 bg-[#F0EBE1] relative overflow-hidden">
+    <section className="py-12 md:py-32 px-4 bg-[#F0EBE1] relative overflow-hidden">
       {/* BG accent */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(ellipse_at_right,rgba(201,168,76,0.04),transparent_65%)] pointer-events-none" />
 
@@ -31,7 +31,7 @@ export default function PresentationJessy() {
               <div className="absolute -inset-4 rounded-full bg-[radial-gradient(ellipse,rgba(201,168,76,0.15),transparent_70%)]" />
 
               {/* Circle */}
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-[#FFFFFF] border-4 border-[#C9A84C]/40 flex items-center justify-center shadow-[0_0_60px_rgba(201,168,76,0.2)]">
+              <div className="relative w-[150px] h-[150px] md:w-80 md:h-80 rounded-full bg-[#FFFFFF] border-4 border-[#C9A84C]/40 flex items-center justify-center shadow-[0_0_60px_rgba(201,168,76,0.2)]">
                 <Image
                   src="/jessy.png"
                   alt="Jessy, fondateur de First Class Location"
@@ -69,7 +69,7 @@ export default function PresentationJessy() {
             <div className="gold-line mb-8" />
 
             <h2
-              className="text-3xl md:text-4xl font-bold text-[#1A1205] mb-6 leading-tight"
+              className="text-2xl md:text-4xl font-bold text-[#1A1205] mb-6 leading-tight"
               style={{ fontFamily: "var(--font-playfair)" }}
             >
               15 ans à la tête de{" "}

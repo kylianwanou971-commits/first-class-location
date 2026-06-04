@@ -155,7 +155,7 @@ export default function OffreFormation() {
   const [contactOpen, setContactOpen] = useState(false);
 
   return (
-    <section id="formation" className="py-24 md:py-32 px-4 bg-[#F0EBE1] relative overflow-hidden">
+    <section id="formation" className="py-12 md:py-32 px-4 bg-[#F0EBE1] relative overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,168,76,0.05),transparent_65%)] pointer-events-none" />
 
@@ -170,7 +170,7 @@ export default function OffreFormation() {
           </motion.div>
           <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl font-bold text-[#1A1205] mb-4"
+            className="text-2xl md:text-5xl font-bold text-[#1A1205] mb-4"
             style={{ fontFamily: "var(--font-playfair)" }}>
             Lance ton agence avec la{" "}
             <span className="text-gold-gradient italic">méthode qui a fait ses preuves</span>
@@ -211,7 +211,7 @@ export default function OffreFormation() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="group bg-[#FFFFFF] border border-[#C9A84C]/40 p-8 relative hover:-translate-y-1 transition-transform duration-300 flex flex-col overflow-hidden"
+            className="group bg-[#FFFFFF] border border-[#C9A84C]/40 p-5 md:p-8 relative hover:-translate-y-1 transition-transform duration-300 flex flex-col overflow-hidden"
           >
             <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
 
@@ -256,7 +256,7 @@ export default function OffreFormation() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="group border-2 border-[#C9A84C] p-8 relative hover:-translate-y-1 transition-transform duration-300 flex flex-col overflow-hidden"
+            className="group border-2 border-[#C9A84C] p-5 md:p-8 relative hover:-translate-y-1 transition-transform duration-300 flex flex-col overflow-hidden"
             style={{ background: "linear-gradient(135deg, #FAF7F2 0%, #F0E6C8 50%, #E8D5A3 100%)", boxShadow: "0 8px 40px rgba(201,168,76,0.25)" }}
           >
             <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />

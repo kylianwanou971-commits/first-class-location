@@ -16,15 +16,15 @@ const formationLinks = [
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-[#1A1205] border-t border-[#C9A84C] pt-16 pb-10 px-4">
+    <footer id="contact" className="bg-[#1A1205] border-t border-[#C9A84C] pt-10 md:pt-16 pb-10 px-4">
       <div className="max-w-6xl mx-auto">
 
         {/* Main grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
 
           {/* Brand */}
-          <div className="lg:col-span-1">
-            <div className="flex flex-col leading-none mb-4">
+          <div className="lg:col-span-1 text-center md:text-left">
+            <div className="flex flex-col leading-none mb-4 items-center md:items-start">
               <span
                 className="text-xl font-semibold tracking-[0.25em] uppercase text-gold-gradient"
                 style={{ fontFamily: "var(--font-playfair)" }}
@@ -47,7 +47,7 @@ export default function Footer() {
             </p>
 
             {/* Contact infos */}
-            <div className="space-y-2.5">
+            <div className="space-y-2.5 flex flex-col items-center md:items-start">
               <div className="flex items-center gap-2.5">
                 <MapPin size={12} className="text-[#C9A84C] flex-shrink-0" />
                 <span
@@ -70,7 +70,7 @@ export default function Footer() {
             </div>
 
             {/* Socials */}
-            <div className="flex gap-2.5 mt-5">
+            <div className="flex gap-2.5 mt-5 justify-center md:justify-start">
               {[
                 { Icon: Instagram, href: "https://www.instagram.com/firstclass.location", label: "Instagram" },
                 { Icon: Facebook, href: "https://www.facebook.com/FirstClassLocationLille", label: "Facebook" },

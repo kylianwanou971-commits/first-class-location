@@ -37,8 +37,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex flex-col items-center justify-center px-4 pb-10 overflow-hidden bg-[#FAF7F2] min-h-screen"
-      style={{ paddingTop: 90 }}
+      className="relative flex flex-col items-center justify-center px-4 pb-8 md:pb-10 overflow-hidden bg-[#FAF7F2] min-h-screen pt-[70px] md:pt-[90px]"
     >
       {/* ── Fond image ── */}
       <div className="absolute inset-0 overflow-hidden">
@@ -92,25 +91,19 @@ export default function Hero() {
 
         {/* 2. H1 — mot par mot, text-5xl */}
         <h1
-          className="font-bold mb-4 leading-[1.1]"
+          className="font-bold mb-4 leading-[1.15]"
           style={{ fontFamily: "var(--font-playfair)" }}
-          aria-label="La seule formation du marché où un véhicule t'attend à la fin."
+          aria-label="La seule formation où un véhicule t'attend à la fin."
         >
-          <span className="block text-6xl text-white mb-1">
-            {["La", "seule", "formation", "du", "marché"].map((w, i) => (
+          <span className="block text-2xl md:text-4xl lg:text-5xl text-white mb-1">
+            {["La", "seule", "formation", "où", "un", "véhicule", "t'attend"].map((w, i) => (
               <motion.span key={i} custom={i} variants={wordVariants} initial="hidden" animate="visible"
                 className="inline-block mr-[0.3em]">{w}</motion.span>
             ))}
           </span>
-          <span className="block text-6xl text-white mb-2">
-            {["où", "un", "véhicule", "t'attend"].map((w, i) => (
-              <motion.span key={i} custom={5 + i} variants={wordVariants} initial="hidden" animate="visible"
-                className="inline-block mr-[0.3em]">{w}</motion.span>
-            ))}
-          </span>
-          <span className="block text-6xl text-gold-gradient italic">
+          <span className="block text-2xl md:text-4xl lg:text-5xl text-gold-gradient italic">
             {["à", "la", "fin."].map((w, i) => (
-              <motion.span key={i} custom={9 + i} variants={wordVariants} initial="hidden" animate="visible"
+              <motion.span key={i} custom={7 + i} variants={wordVariants} initial="hidden" animate="visible"
                 className="inline-block mr-[0.3em]">{w}</motion.span>
             ))}
           </span>
@@ -119,7 +112,7 @@ export default function Hero() {
         {/* 3. Sous-titre — text-lg, mb 24px */}
         <motion.p
           custom={3} variants={lineVariants} initial="hidden" animate="visible"
-          className="text-lg text-white/70 max-w-xl mx-auto mb-6 leading-relaxed"
+          className="text-sm md:text-lg text-white/70 max-w-xl mx-auto mb-4 md:mb-6 leading-relaxed"
           style={{ fontFamily: "var(--font-inter)" }}
         >
           15 ans d&apos;expérience dans le secteur
@@ -128,9 +121,9 @@ export default function Hero() {
         {/* 4. CTA — padding 16px 32px, mb 32px */}
         <motion.div
           custom={4} variants={lineVariants} initial="hidden" animate="visible"
-          className="flex justify-center mb-8"
+          className="flex justify-center mb-6 md:mb-8 w-full"
         >
-          <a href="https://app.iclosed.io/e/Jessy-FCFORMATION/appel-strat-gique-offert-30-min" target="_blank" rel="noopener noreferrer" className="btn-primary px-8 py-4">
+          <a href="https://app.iclosed.io/e/Jessy-FCFORMATION/appel-strat-gique-offert-30-min" target="_blank" rel="noopener noreferrer" className="btn-primary px-8 py-4 w-full md:w-auto justify-center">
             Je veux lancer mon agence
           </a>
         </motion.div>
@@ -140,7 +133,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30, scale: 0.97 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ delay: 1.2, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="relative w-full max-w-[780px] mx-auto overflow-hidden border border-gold/20"
+          className="relative w-full max-w-[780px] mx-auto overflow-hidden border border-gold/20 h-[200px] md:h-auto"
           style={{ aspectRatio: "16/9", borderRadius: 12 }}
         >
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent z-10" />

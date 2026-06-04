@@ -52,7 +52,7 @@ export default function Navbar() {
     <>
       <header
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 bg-[#FAF7F2] border-b border-[#D4C5A9] ${
-          scrolled ? "shadow-md py-3" : "py-5"
+          scrolled ? "shadow-md py-2 md:py-3" : "py-3 md:py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8">

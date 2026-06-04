@@ -60,7 +60,7 @@ export default function Simulateur() {
   const fmt = (n: number) => n.toLocaleString("fr-FR");
 
   return (
-    <section id="simulateur" className="py-24 md:py-32 px-4 bg-[#FAF7F2] relative overflow-hidden">
+    <section id="simulateur" className="py-12 md:py-32 px-4 bg-[#FAF7F2] relative overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(201,168,76,0.04),transparent_70%)] pointer-events-none" />
 
@@ -82,7 +82,7 @@ export default function Simulateur() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl font-bold text-[#1A1205] mb-4"
+            className="text-2xl md:text-5xl font-bold text-[#1A1205] mb-4"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Simule tes{" "}
@@ -157,12 +157,10 @@ export default function Simulateur() {
 
           {/* Results */}
           <div className="flex flex-col">
-            <div className="bg-[#FFFFFF] border border-white/6 p-6 flex-1 flex flex-col">
-              <p className="label text-[#2D2416] mb-4" style={{ fontFamily: "var(--font-inter)" }}>
+            <div className="bg-[#FFFFFF] border border-white/6 p-4 md:p-6 flex-1 flex flex-col">
+              <p className="label text-[#2D2416] mb-2 md:mb-4" style={{ fontFamily: "var(--font-inter)" }}>
                 Résultats en temps réel
               </p>
-
-              {/* Contexte véhicules */}
               <motion.p
                 key={vehicules}
                 initial={{ opacity: 0.3, x: 4 }}
@@ -174,76 +172,79 @@ export default function Simulateur() {
                 {vehicules} véhicule{vehicules > 1 ? "s" : ""} dans ta flotte
               </motion.p>
 
-              {/* CA */}
-              <div className="py-3.5 border-b border-white/6">
-                <p className="text-[#2D2416] text-xs mb-1" style={{ fontFamily: "var(--font-inter)" }}>
-                  Chiffre d&apos;affaires hors taxes par mois
-                </p>
-                <motion.p
-                  key={ca}
-                  initial={{ opacity: 0.3, x: 4 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.15 }}
-                  className="font-bold text-xl text-[#1A1205]"
-                  style={{ fontFamily: "var(--font-inter)" }}
-                >
-                  {fmt(ca)} €
-                </motion.p>
-              </div>
+              {/* 2×2 grid on mobile, list on desktop */}
+              <div className="grid grid-cols-2 md:grid-cols-1 gap-3 md:gap-0 flex-1">
+                {/* CA */}
+                <div className="p-3 md:p-0 md:py-3.5 border border-[#D4C5A9]/40 md:border-0 md:border-b md:border-white/6">
+                  <p className="text-[#2D2416] text-[10px] md:text-xs mb-1 leading-tight" style={{ fontFamily: "var(--font-inter)" }}>
+                    CA HT / mois
+                  </p>
+                  <motion.p
+                    key={ca}
+                    initial={{ opacity: 0.3, x: 4 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.15 }}
+                    className="font-bold text-base md:text-xl text-[#1A1205]"
+                    style={{ fontFamily: "var(--font-inter)" }}
+                  >
+                    {fmt(ca)} €
+                  </motion.p>
+                </div>
 
-              {/* Loyer total */}
-              <div className="py-3.5 border-b border-white/6">
-                <p className="text-[#2D2416] text-xs mb-1" style={{ fontFamily: "var(--font-inter)" }}>
-                  Loyer total des véhicules
-                </p>
-                <motion.p
-                  key={loyerTotal}
-                  initial={{ opacity: 0.3, x: 4 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.15 }}
-                  className="font-bold text-base text-red-400"
-                  style={{ fontFamily: "var(--font-inter)" }}
-                >
-                  − {fmt(loyerTotal)} €
-                </motion.p>
-              </div>
+                {/* Loyer */}
+                <div className="p-3 md:p-0 md:py-3.5 border border-[#D4C5A9]/40 md:border-0 md:border-b md:border-white/6">
+                  <p className="text-[#2D2416] text-[10px] md:text-xs mb-1 leading-tight" style={{ fontFamily: "var(--font-inter)" }}>
+                    Loyer total
+                  </p>
+                  <motion.p
+                    key={loyerTotal}
+                    initial={{ opacity: 0.3, x: 4 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.15 }}
+                    className="font-bold text-base text-red-400"
+                    style={{ fontFamily: "var(--font-inter)" }}
+                  >
+                    − {fmt(loyerTotal)} €
+                  </motion.p>
+                </div>
 
-              {/* Bénéfice — highlighted */}
-              <div className="my-3 p-4 bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.08),transparent_70%)] border border-[#C9A84C]/40">
-                <p className="text-[#2D2416] text-[10px] uppercase tracking-widest mb-1" style={{ fontFamily: "var(--font-inter)" }}>
-                  Bénéfice hors taxes avant impôt
-                </p>
-                <motion.p
-                  key={benefice}
-                  initial={{ opacity: 0.3, x: 4 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.15 }}
-                  className={`text-3xl font-bold ${benefice >= 0 ? "text-gold" : "text-red-400"}`}
-                  style={{ fontFamily: "var(--font-inter)" }}
-                >
-                  {benefice >= 0 ? "" : "− "}{fmt(Math.abs(benefice))} €
-                </motion.p>
-              </div>
+                {/* Bénéfice */}
+                <div className="p-3 md:p-4 bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.08),transparent_70%)] border border-[#C9A84C]/40 md:my-3">
+                  <p className="text-[#2D2416] text-[10px] uppercase tracking-widest mb-1 leading-tight" style={{ fontFamily: "var(--font-inter)" }}>
+                    Bénéfice HT
+                  </p>
+                  <motion.p
+                    key={benefice}
+                    initial={{ opacity: 0.3, x: 4 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.15 }}
+                    className={`text-xl md:text-3xl font-bold ${benefice >= 0 ? "text-gold" : "text-red-400"}`}
+                    style={{ fontFamily: "var(--font-inter)" }}
+                  >
+                    {benefice >= 0 ? "" : "− "}{fmt(Math.abs(benefice))} €
+                  </motion.p>
+                </div>
 
-              {/* Annuel */}
-              <div className="flex items-center justify-between py-3 mt-auto">
-                <span className="text-[#2D2416] text-xs" style={{ fontFamily: "var(--font-inter)" }}>
-                  Revenus annuel estimé
-                </span>
-                <motion.span
-                  key={annuel}
-                  initial={{ opacity: 0.3, x: 4 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.15 }}
-                  className="font-bold text-base text-gold"
-                  style={{ fontFamily: "var(--font-inter)" }}
-                >
-                  {fmt(annuel)} €/an
-                </motion.span>
+                {/* Annuel */}
+                <div className="p-3 md:p-0 md:py-3 border border-[#D4C5A9]/40 md:border-0 flex flex-col justify-center md:flex-row md:items-center md:justify-between">
+                  <span className="text-[#2D2416] text-[10px] md:text-xs leading-tight mb-1 md:mb-0" style={{ fontFamily: "var(--font-inter)" }}>
+                    Revenu annuel
+                  </span>
+                  <motion.span
+                    key={annuel}
+                    initial={{ opacity: 0.3, x: 4 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.15 }}
+                    className="font-bold text-base text-gold"
+                    style={{ fontFamily: "var(--font-inter)" }}
+                  >
+                    {fmt(annuel)} €/an
+                  </motion.span>
+                </div>
               </div>
             </div>
 
-            <a href="https://app.iclosed.io/e/Jessy-FCFORMATION/appel-strat-gique-offert-30-min" target="_blank" rel="noopener noreferrer" className="btn-primary justify-center mt-4">
+            <a href="https://app.iclosed.io/e/Jessy-FCFORMATION/appel-strat-gique-offert-30-min" target="_blank" rel="noopener noreferrer" className="btn-primary justify-center mt-4 w-full">
               Je veux atteindre ces chiffres
               <ArrowRight size={14} />
             </a>
