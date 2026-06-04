@@ -212,8 +212,8 @@ export default function Evenements() {
               ).map((n, i) => (
                 <div
                   key={i}
-                <div
-                  className="w-[280px] h-[250px] md:w-[400px] md:h-[400px] flex-shrink-0 transition-transform duration-300 hover:-translate-y-2"
+                  className="flex-shrink-0 transition-transform duration-300 hover:-translate-y-2"
+                  className="w-[280px] h-[250px] md:w-[400px] md:h-[400px] flex-shrink-0"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
