@@ -264,9 +264,6 @@ export default function Evenements() {
                     style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                   />
                 </div>
-                <p className="text-[#2D2416] text-sm mt-3 text-center" style={{ fontFamily: "var(--font-inter)" }}>
-                  {label}
-                </p>
               </motion.div>
             ))}
           </div>

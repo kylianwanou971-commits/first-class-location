@@ -24,6 +24,24 @@ const testimonials = [
     video: "/video-temoignage/temoiagnage2.mp4",
   },
   {
+    name: "Thomas",
+    phrase: "J'ai suivi la formation et lancé mon agence en quelques semaines.",
+    city: "",
+    result: "",
+    detail: "",
+    color: "from-[#0f001a]",
+    video: "/video-temoignage/temoiagnage3.mp4",
+  },
+  {
+    name: "Kevin",
+    phrase: "First Class m'a tout appris, je recommande les yeux fermés.",
+    city: "",
+    result: "",
+    detail: "",
+    color: "from-[#1a0000]",
+    video: "/video-temoignage/temoiagnage4.mp4",
+  },
+  {
     name: "Dylan M.",
     city: "Bordeaux",
     result: "8 000 € dès le 6ème mois",
@@ -60,7 +78,7 @@ function VideoCard({ t, index }: { t: typeof testimonials[0]; index: number }) {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.07 }}
-      className="video-card flex flex-col"
+      className="video-card flex flex-col overflow-hidden"
     >
       {/* 9:16 card */}
       <div
@@ -115,17 +133,17 @@ function VideoCard({ t, index }: { t: typeof testimonials[0]; index: number }) {
       </div>
 
       {/* Below card */}
-      <div className="mt-3 px-1">
-        <p className="text-[#1A1205] text-xs font-semibold" style={{ fontFamily: "var(--font-inter)" }}>
+      <div className="mt-3 px-1 flex flex-col gap-1 min-w-0">
+        <p className="text-[#1A1205] text-xs font-semibold truncate" style={{ fontFamily: "var(--font-inter)" }}>
           {t.name}
         </p>
         {t.phrase && (
-          <p className="text-[#6B5C3E] text-[11px] italic mt-1 leading-relaxed" style={{ fontFamily: "var(--font-inter)" }}>
+          <p className="text-[#6B5C3E] text-[11px] italic leading-relaxed break-words" style={{ fontFamily: "var(--font-inter)" }}>
             {t.phrase}
           </p>
         )}
         {t.city && (
-          <p className="text-[#2D2416] text-[10px]" style={{ fontFamily: "var(--font-inter)" }}>
+          <p className="text-[#2D2416] text-[10px] truncate" style={{ fontFamily: "var(--font-inter)" }}>
             {t.city}
           </p>
         )}
